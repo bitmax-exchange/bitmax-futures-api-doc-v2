@@ -7,33 +7,33 @@
     "code": 0,
     "data": {
         "meta": {
-            "action"  : "cancel-order",
-            "id"      : "abcd1234abcd1234",
-            "respInst": "ACCEPT"
+            "action"  : "cancel-order",       // action
+            "id"      : "abcd1234abcd1234",   // user provided ID
+            "respInst": "ACCEPT"              // response instruction
         },
         "order": {
-            "ac"          : "FUTURES",
-            "accountId"   : "sample-futures-account-id",
-            "seqNum"      : 14,
-            "time"        : 1605677683714,
-            "orderId"     : "a175d9d90643U68469127074abcd1234",
-            "orderType"   : "Limit",
-            "side"        : "Buy",
-            "symbol"      : "BTC-PERP",
-            "price"       : "9500",
-            "orderQty"    : "0.1",
-            "stopPrice"   : "0",
-            "stopBy"      : "_NOT_IMPLEMENTED_",
-            "status"      : "Canceled",
-            "lastExecTime": 1605677684479,
-            "lastPx"      : "0",
-            "lastQty"     : "0",
-            "avgFilledPx" : "0",
-            "cumFilledQty": "0",
-            "fee"         : "0",
-            "cumFee"      : "0",
-            "feeAsset"    : "USDT",
-            "errorCode"   : ""
+            "ac"          : "FUTURES",                    // account category
+            "accountId"   : "sample-futures-account-id",  // account ID
+            "seqNum"      : 14,                           // sequence number
+            "time"        : 1605677683714,                // order creation time (UTC time in milliseconds)
+            "orderId"     : "sample-order-id",            // order ID
+            "orderType"   : "Limit",                      // order type
+            "side"        : "Buy",                        // side
+            "symbol"      : "BTC-PERP",                   // contract symbol
+            "price"       : "9500",                       // order price 
+            "orderQty"    : "0.1",                        // order qty
+            "stopPrice"   : "0",                          // stop price
+            "stopBy"      : "market",                     // stop price trigger 
+            "status"      : "Canceled",                   // order status
+            "lastExecTime": 1605677684479,                // last execution time (UTC time in milliseconds)
+            "lastPx"      : "0",                          // last filled price
+            "lastQty"     : "0",                          // last filled quantity
+            "avgFilledPx" : "0",                          // average filled price of all fills 
+            "cumFilledQty": "0",                          // cummulative filled quantity
+            "fee"         : "0",                          // fee of the last fill
+            "cumFee"      : "0",                          // cummulative fee
+            "feeAsset"    : "USDT",                       // fee asset
+            "errorCode"   : ""                            // error code
         }
     }
 }

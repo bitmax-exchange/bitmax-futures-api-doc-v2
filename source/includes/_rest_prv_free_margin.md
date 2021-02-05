@@ -8,8 +8,8 @@
   "data": {
     "collaterals": [
       {
-        "asset": "BTC",
-        "availableForTransfer": "1"
+        "asset": "BTC",              // collateral asset
+        "availableForTransfer": "1"  // maximum amount allowed to be transferred out
       },
       {
         "asset": "USDT",

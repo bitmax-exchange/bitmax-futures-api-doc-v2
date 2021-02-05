@@ -6,14 +6,14 @@
 {
     "code": 0,
     "data": {
-        "accountCategory": "FUTURES",
-        "accountId"      : "sample-futures-account-id",
+        "accountCategory": "FUTURES",                   // account category
+        "accountId"      : "sample-futures-account-id", // account ID
         "collaterals": [
             {
-                "asset"         : "ETH",
-                "balance"       : "100",
-                "discountFactor": "0.95",
-                "referencePrice": "481.79793092"
+                "asset"         : "ETH",          // collateral asset 
+                "balance"       : "100",          // balance 
+                "discountFactor": "0.95",         // discount factor
+                "referencePrice": "481.79793092"  // reference price (quote in USDT)
             },
             {
                 "asset"         : "BTC",
