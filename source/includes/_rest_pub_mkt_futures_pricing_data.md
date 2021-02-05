@@ -9,18 +9,18 @@
   "data": {
     "contracts": [
       {
-        "time"           : 1609368616960,
-        "symbol"         : "BTC-PERP",
-        "markPrice"      : "28097.526022138",
-        "indexPrice"     : "28768.535",
-        "fundingRate"    : "-0.005",
-        "nextFundingTime": 1609329600000
+        "time"           : 1609368616960,       // server time (UTC timestamp in milliseconds)
+        "symbol"         : "BTC-PERP",          // contract symbol
+        "markPrice"      : "28097.526022138",   // market price of the contract
+        "indexPrice"     : "28768.535",         // price of the underlying index
+        "fundingRate"    : "-0.005",            // funding rate
+        "nextFundingTime": 1609329600000        // next funding time (UTC timestamp in milliseconds)
       }
     ],
     "collaterals": [
       {
         "asset"         : "USDTR",
-        "referencePrice": "1"
+        "referencePrice": "1"        // reference price (quote in USDT)
       },
       {
         "asset"         : "USDC",
