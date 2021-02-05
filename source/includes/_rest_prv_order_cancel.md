@@ -13,7 +13,7 @@
         },
         "order": {
             "ac"          : "FUTURES",
-            "accountId"   : "fut-yue-zhao-bitmax",
+            "accountId"   : "sample-futures-account-id",
             "seqNum"      : 14,
             "time"        : 1605677683714,
             "orderId"     : "a175d9d90643U68469127074abcd1234",
@@ -33,19 +33,13 @@
             "fee"         : "0",
             "cumFee"      : "0",
             "feeAsset"    : "USDT",
-            "errorCode"   : "",
+            "errorCode"   : ""
         }
     }
 }
 ```
 
 **HTTP Request**
-
-<!-- 
-@binance POST 
-@bybit   POST 
-@OKEx    POST 
--->
 
 `POST /<grp>/api/pro/v2/futures/order`
 

@@ -14,12 +14,6 @@ See [Free Margin](#free-margin) on the maximum amount you can increase / decreas
 
 **HTTP Request**
 
-<!-- 
-@binance POST /fapi/v1/positionMargin
-@bybit   POST /position/change-position-margin
-@OKEx    POST ?
--->
-
 `POST /<grp>/api/pro/v2/futures/isolated-position-margin`
 
 **Prehash String**

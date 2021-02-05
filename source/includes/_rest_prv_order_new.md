@@ -13,7 +13,7 @@
         },
         "order": {
             "ac"          : "FUTURES",
-            "accountId"   : "fut-yue-zhao-bitmax",
+            "accountId"   : "sample-futures-account-id",
             "seqNum"      : 14,
             "time"        : 1605677683714,
             "orderId"     : "a175d9d90643U68469127074abcd1234",
@@ -40,12 +40,6 @@
 ```
 
 **HTTP Request**
-
-<!-- 
-@binance POST /fapi/v1/order
-@bybit   POST /v2/private/order/create
-@OKEx    POST /api/swap/v3/order
--->
 
 `POST /<grp>/api/pro/v2/futures/order`
 

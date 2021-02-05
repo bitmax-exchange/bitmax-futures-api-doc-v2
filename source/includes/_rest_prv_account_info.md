@@ -11,18 +11,18 @@
         "expireTime": 1604620800000,         // expire time, UTC timestamp in milliseconds. If -1, the api key will not expire
         "allowedIps": ["123.123.123.123"],
         "cashAccount": [
-            "cshAccountId"
+            "sample-cash-account-id"
         ],
         "marginAccount": [
-            "marAccountId"
+            "sample-margin-account-id"
         ],
         "marginAccount": [
-            "futAccountId"
+            "sample-futures-account-id"
         ],
         "userUID":            "U0866943712",
-        "tradePermission":     True,
-        "transferPermission":  True,
-        "viewPermission":      True,
+        "tradePermission":     true,
+        "transferPermission":  true,
+        "viewPermission":      true,
         "limitQuota":          1000
     }
 }

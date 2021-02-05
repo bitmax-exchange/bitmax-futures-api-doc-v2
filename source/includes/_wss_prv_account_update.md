@@ -1,47 +1,43 @@
 ### Channel: Account Update
 
 ```json
+
+
 {
-    "m"     : "futures-account-update",
-    "e"     : "ExecutionReport",
-    "t"     : 1606083071535,
-    "acc"   : "fut-yue-zhao-bitmax",
-    "at"    : "FUTURES",
-    "execId": 82,
-    "col": [
-        {
-            "a": "ETH",
-            "b": "100",
-            "f": "0.95"
-        },
-        {
-            "a": "BTC",
-            "b": "10",
-            "f": "0.98"
-        },
-        {
-            "a": "USDT",
-            "b": "10000",
-            "f": "1"
-        }
-    ],
-    "pos": [
-        {
-            "s"  : "BTCP",
-            "sd" : "NULL_VAL",
-            "pos": "0",
-            "up" : "0",
-            "rp" : "0",
-            "aop": "0",
-            "mt" : "IsolatedMargin",
-            "lev": "10",
-            "iw" : "0",
-            "tp" : "0",
-            "tpt": "ref-px",
-            "sl" : "0",
-            "slt": "ref-px"
-        }
-    ]
+  "m"     : "futures-account-update",
+  "e"     : "ExecutionReport",
+  "t"     : 1612508562129,
+  "acc"   : "sample-futures-account-id", 
+  "at"    : "FUTURES",
+  "execId": 23128,
+  "id"    : "r177710001cbU3813942147C5kbFGOan",  // request ID for this account update
+  "col": [
+    {
+      "a": "USDT",               // asset code
+      "b": "1000000",            // balance 
+      "f": "1"                   // discount factor
+    }
+  ],
+  "pos": [
+    {
+      "s"   : "BTC-PERP",        // symbol
+      "sd"  : "LONG",            // side
+      "pos" : "0.011",           // position
+      "rc"  : "-385.840455",     // reference cost
+      "up"  : "18.436008668",    // unrealized pnl
+      "rp"  : "0",               // realized pnl
+      "aop" : "35041.363636363", // Average Opening Price
+      "boon": "0",               // Buy Open Order Notional
+      "soon": "0",               // Sell Open Order Notional
+      "mt"  : "crossed",         // margin type: isolated / cross
+      "iw"  : "0",               // isolated margin
+      "lev" : "10",              // leverage
+      "tp"  : "0",               // take profit price (by position exit order)
+      "tpt" : "market",          // take profit trigger (by position exit order)
+      "sl"  : "0",               // stop loss price (by position exit order)
+      "slt" : "market",          // stop loss trigger (by position exit order)
+    }
+  ]
 }
 ```
 
@@ -49,3 +45,6 @@
 **Subscribe to the Channel**
 
 `{"op":"sub", "id":"sample-id", "ch":"futures-account-update"}`
+
+
+

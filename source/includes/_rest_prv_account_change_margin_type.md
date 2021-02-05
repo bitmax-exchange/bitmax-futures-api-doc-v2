@@ -19,12 +19,6 @@ You can change the margin type of a position:
 
 **HTTP Request**
 
-<!-- 
-@binance POST /fapi/v1/marginType
-@bybit   POST ?
-@OKEx    POST ?
--->
-
 `POST /<grp>/api/pro/v2/futures/margin-type`
 
 **Prehash String**
