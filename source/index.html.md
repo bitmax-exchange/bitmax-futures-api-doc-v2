@@ -38,7 +38,6 @@ includes:
   - wss_prv_account_update
   - appendix
   - appendix_enum
-  - appendix_errors
 
 search: true
 
