@@ -10,35 +10,35 @@
             "symbol"          : "BTC-PERP",
             "status"          : "Normal",
             "displayName"     : "BTCUSDT",      // the name displayed on the webpage
-            "baseAsset"       : "BTCP",
-            "quoteAsset"      : "USDT",
+            "baseAsset"       : "BTCP",         // base asset
+            "quoteAsset"      : "USDT",         // quote asset
             "underlying"      : "BTC/USDT",
             "tradingStartTime": 1579701600000,
             "collapseDecimals": "1,0.1,0.01",
             "priceFilter": {
-                "minPrice"  : "0.25",
-                "maxPrice"  : "1000000",
-                "tickSize"  : "0.25",
+                "minPrice"  : "0.25",     // the order price cannot be smaller than the minPrice
+                "maxPrice"  : "1000000",  // the order price cannot be greater than the maxPrice
+                "tickSize"  : "0.25",     // the order price must be a multiple of the tickSize
                 "priceScale": 2
             },
             "lotSizeFilter": {
-                "minQty"  : "0.0001",
-                "maxQty"  : "1000000000",
-                "lotSize" : "0.0001",
+                "minQty"  : "0.0001",     // the order quantity cannot be smaller than the minQty
+                "maxQty"  : "1000000000", // the order quantity cannot be greater than the maxQty
+                "lotSize" : "0.0001",     // the order quantity must be a multiple of the lotSize
                 "qtyScale": 4
             },
             "marginRequirements": [
                 {
-                    "positionLB"           : "0",     // position lower bound
-                    "positionUB"           : "50000", // position upper bound
-                    "initialMarginRate"    : "0.01",  // initial margin rate
-                    "maintenanceMarginRate": "0.006"  // maintenance margin rate
+                    "positionNotionalLowerbound": "0",     // position lower bound
+                    "positionNotionalUpperbound": "50000", // position upper bound
+                    "initialMarginRate"         : "0.01",  // initial margin rate
+                    "maintenanceMarginRate"     : "0.006"  // maintenance margin rate
                 },
                 {
-                    "positionLB"           : "50000",
-                    "positionUB"           : "200000",
-                    "initialMarginRate"    : "0.02",
-                    "maintenanceMarginRate": "0.012"
+                    "positionNotionalLowerbound": "50000",
+                    "positionNotionalUpperbound": "200000",
+                    "initialMarginRate"         : "0.02",
+                    "maintenanceMarginRate"     : "0.012"
                 }
             ]
         }

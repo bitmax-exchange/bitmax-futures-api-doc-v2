@@ -1,4 +1,4 @@
-### Change Account Leverage 
+### Change Contract Leverage 
 
 > Response
 

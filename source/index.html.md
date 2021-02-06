@@ -46,3 +46,13 @@ code_clipboard: true
 
 # Introducing New Futures APIs (Testnet Only)
 
+## Testnet 
+
+Testnet hostname:
+
+http://api-test.bitmax-sandbox.io/
+
+You are free to register one or more accounts in the testnet. You can use the magic code *888888* to bypass all verification code checks 
+(email verification, phone number verification, two-step authentication, etc.).
+
+You accounts will automatically receive initial funding. 

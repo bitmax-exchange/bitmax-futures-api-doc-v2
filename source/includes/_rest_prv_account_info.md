@@ -16,7 +16,7 @@
         "marginAccount": [
             "sample-margin-account-id"
         ],
-        "marginAccount": [
+        "futuresAccount": [
             "sample-futures-account-id"
         ],
         "userUID":            "U0866943712",
