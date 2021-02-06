@@ -309,6 +309,11 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introducing-new-futures-apis-testnet-only" class="toc-h1 toc-link" data-title="Introducing New Futures APIs (Testnet Only)">Introducing New Futures APIs (Testnet Only)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#testnet" class="toc-h2 toc-link" data-title="Testnet">Testnet</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#restful-apis" class="toc-h1 toc-link" data-title="RESTful APIs">RESTful APIs</a>
@@ -354,7 +359,7 @@
                             <a href="#change-margin-type" class="toc-h3 toc-link" data-title="Change Margin Type">Change Margin Type</a>
                           </li>
                           <li>
-                            <a href="#change-account-leverage" class="toc-h3 toc-link" data-title="Change Account Leverage">Change Account Leverage</a>
+                            <a href="#change-contract-leverage" class="toc-h3 toc-link" data-title="Change Contract Leverage">Change Contract Leverage</a>
                           </li>
                           <li>
                             <a href="#deposit-to-the-futures-account" class="toc-h3 toc-link" data-title="Deposit to the Futures Account">Deposit to the Futures Account</a>
@@ -464,7 +469,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introducing-new-futures-apis-testnet-only'>Introducing New Futures APIs (Testnet Only)</h1><h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
+        <h1 id='introducing-new-futures-apis-testnet-only'>Introducing New Futures APIs (Testnet Only)</h1><h2 id='testnet'>Testnet</h2>
+<p>Testnet hostname:</p>
+
+<p>http://api-test.bitmax-sandbox.io/</p>
+
+<p>You are free to register one or more accounts in the testnet. You can use the magic code <em>888888</em> to bypass all verification code checks 
+(email verification, phone number verification, two-step authentication, etc.).</p>
+
+<p>You accounts will automatically receive initial funding. </p>
+<h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
 <p>Response - Futures Contracts Info</p>
 </blockquote>
@@ -475,35 +489,35 @@
             </span><span class="nl">"symbol"</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"status"</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"displayName"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">displayed</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">webpage</span><span class="w">
-            </span><span class="nl">"baseAsset"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCP"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"quoteAsset"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"baseAsset"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCP"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">asset</span><span class="w">
+            </span><span class="nl">"quoteAsset"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">quote</span><span class="w"> </span><span class="err">asset</span><span class="w">
             </span><span class="nl">"underlying"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"tradingStartTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1579701600000</span><span class="p">,</span><span class="w">
             </span><span class="nl">"collapseDecimals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,0.1,0.01"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"priceFilter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"minPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"maxPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"tickSize"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"minPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">smaller</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minPrice</span><span class="w">
+                </span><span class="nl">"maxPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">greater</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maxPrice</span><span class="w">
+                </span><span class="nl">"tickSize"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tickSize</span><span class="w">
                 </span><span class="nl">"priceScale"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"lotSizeFilter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"minQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"maxQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"lotSize"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"minQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">smaller</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minQty</span><span class="w">
+                </span><span class="nl">"maxQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">greater</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maxQty</span><span class="w">
+                </span><span class="nl">"lotSize"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">lotSize</span><span class="w">
                 </span><span class="nl">"qtyScale"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"marginRequirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"positionLB"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">lower</span><span class="w"> </span><span class="err">bound</span><span class="w">
-                    </span><span class="nl">"positionUB"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">upper</span><span class="w"> </span><span class="err">bound</span><span class="w">
-                    </span><span class="nl">"initialMarginRate"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">initial</span><span class="w"> </span><span class="err">margin</span><span class="w"> </span><span class="err">rate</span><span class="w">
-                    </span><span class="nl">"maintenanceMarginRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.006"</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">maintenance</span><span class="w"> </span><span class="err">margin</span><span class="w"> </span><span class="err">rate</span><span class="w">
+                    </span><span class="nl">"positionNotionalLowerbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">lower</span><span class="w"> </span><span class="err">bound</span><span class="w">
+                    </span><span class="nl">"positionNotionalUpperbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">upper</span><span class="w"> </span><span class="err">bound</span><span class="w">
+                    </span><span class="nl">"initialMarginRate"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">initial</span><span class="w"> </span><span class="err">margin</span><span class="w"> </span><span class="err">rate</span><span class="w">
+                    </span><span class="nl">"maintenanceMarginRate"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.006"</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">maintenance</span><span class="w"> </span><span class="err">margin</span><span class="w"> </span><span class="err">rate</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"positionLB"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"positionUB"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"initialMarginRate"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.02"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"maintenanceMarginRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.012"</span><span class="w">
+                    </span><span class="nl">"positionNotionalLowerbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"positionNotionalUpperbound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"initialMarginRate"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.02"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"maintenanceMarginRate"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.012"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -626,7 +640,7 @@
         </span><span class="nl">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"sample-margin-account-id"</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="nl">"futuresAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"sample-futures-account-id"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"userUID"</span><span class="p">:</span><span class="w">            </span><span class="s2">"U0866943712"</span><span class="p">,</span><span class="w">
@@ -911,7 +925,7 @@
 <td>You can switch between two margin types: <code>isolated</code> and <code>crossed</code></td>
 </tr>
 </tbody></table>
-<h3 id='change-account-leverage'>Change Account Leverage</h3>
+<h3 id='change-contract-leverage'>Change Contract Leverage</h3>
 <blockquote>
 <p>Response</p>
 </blockquote>
