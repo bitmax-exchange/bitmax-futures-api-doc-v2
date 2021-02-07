@@ -48,11 +48,15 @@ code_clipboard: true
 
 ## Testnet 
 
-Testnet hostname:
+Testnet:
 
-http://api-test.bitmax-sandbox.io/
+[https://api-test.bitmax-sandbox.io/](https://api-test.bitmax-sandbox.io/)
 
 You are free to register one or more accounts in the testnet. You can use the magic code *888888* to bypass all verification code checks 
 (email verification, phone number verification, two-step authentication, etc.).
 
 You accounts will automatically receive initial funding. 
+
+Please expect the testnet to be reset every a few days. 
+
+
