@@ -9,7 +9,7 @@
   "t"     : 1612508562129,                       // server time (UTC time in milliseconds)
   "acc"   : "sample-futures-account-id",         // account ID
   "at"    : "FUTURES",                           // account type
-  "execId": 23128,                               // execution ID, strictly increasing for each account
+  "sn"    : 23128,                               // sequence number, strictly increasing for each account
   "id"    : "r177710001cbU3813942147C5kbFGOan",  // request ID for this account update
   "col": [
     {

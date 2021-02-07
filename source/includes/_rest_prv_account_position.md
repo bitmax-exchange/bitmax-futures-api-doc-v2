@@ -6,7 +6,7 @@
 {
     "code": 0,
     "data": {
-        "accountCategory": "FUTURES",                   // account category
+        "ac"             : "FUTURES",                   // account category
         "accountId"      : "sample-futures-account-id", // account ID
         "collaterals": [
             {
