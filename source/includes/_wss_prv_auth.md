@@ -41,7 +41,7 @@ SIGNATURE=`echo -n $MESSAGE | openssl dgst -sha256 -hmac $SECRET -binary | base6
 wscat -H "x-auth-key: $APIKEY" \
   -H "x-auth-signature: $SIGNATURE" \
   -H "x-auth-timestamp: $TIMESTAMP" \
-  -c wss://bitmax.io/1/api/pro/v1/stream -w 1 -x '{"op":"sub", "id": "abc123", "ch": "futures-order"}'
+  -c wss://bitmax.io/1/api/pro/v2/stream -w 1 -x '{"op":"sub", "id": "abc123", "ch": "futures-order"}'
 ```
 
 ```python
@@ -65,7 +65,7 @@ async def websocket_auth_demo(uri):
     apikey = "2pJkaH37i4wrVAMmFNoASVNCu4INP5F9"
     secret = "etvbsuZQafiECVdDb29PpwhzhWSf47kDpGxT8Fa7eZMjdGsUAQGHVudpt7S3ZY5w"
     ts = get_timestamp()
-    message = str(ts) + "+stream"
+    message = str(ts) + "+v2/stream"
     sig = hashing(message, secret)
     auth_headers = [
         ("x-auth-key", apikey),
@@ -77,7 +77,7 @@ async def websocket_auth_demo(uri):
             print(msg)
 
 asyncio.get_event_loop().run_until_complete(
-    websocket_auth_demo('wss://bitmax.io:443/0/api/pro/stream'))
+    websocket_auth_demo('wss://bitmax.io:443/0/api/pro/v2/stream'))
 ```
 
 ```java
@@ -106,14 +106,14 @@ Note that if you specify these header fields, the server will reject the websock
 # # Install wscat from Node.js if you haven't
 # npm install -g wscat  
 
-APIPATH=stream
+APIPATH=v2/stream
 APIKEY=BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
 SECRET=fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
 TIMESTAMP=`date +%s%N | cut -c -13`
 MESSAGE=$TIMESTAMP+$APIPATH
 SIGNATURE=`echo -n $MESSAGE | openssl dgst -sha256 -hmac $SECRET -binary | base64`
 
-wscat -c wss://bitmax.io/1/api/v1/pro/stream -w 1 -x "{\"op\":\"auth\", \"id\": \"abc123\", \"t\": $TIMESTAMP, "key": \"$APIKEY\", \"sig\": \"$SIGNATURE\"}"
+wscat -c wss://bitmax.io/1/api/pro/v2/stream -w 1 -x "{\"op\":\"auth\", \"id\": \"abc123\", \"t\": $TIMESTAMP, "key": \"$APIKEY\", \"sig\": \"$SIGNATURE\"}"
 ```
 
 ```python
@@ -147,7 +147,7 @@ async def websocket_auth_demo(uri):
             print(msg)
 
 asyncio.get_event_loop().run_until_complete(
-    websocket_auth_demo('wss://bitmax.io:443/0/api/pro/stream'))
+    websocket_auth_demo('wss://bitmax.io:443/0/api/pro/v2/stream'))
 ```
 
 ```java
