@@ -18,6 +18,11 @@ If the session is disconnected for some reason, you will receive a `disconnected
 * `{"m":"disconnected","code":100005,"reason":"INVALID_WS_REQUEST_DATA","info":"Session is disconnected due to missing pong message from the client"}`
 
 
+### Prehash String
+
+`<timestamp>+v2/stream`
+
+
 ### Method 1 - WebSocket Authentication with Request Headers
 
 > Authenticate with Headers
@@ -26,7 +31,7 @@ If the session is disconnected for some reason, you will receive a `disconnected
 # # Install wscat from Node.js if you haven't
 # npm install -g wscat  
 
-APIPATH=stream
+APIPATH=v2/stream
 APIKEY=BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
 SECRET=fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
 TIMESTAMP=`date +%s%N | cut -c -13`
@@ -36,7 +41,7 @@ SIGNATURE=`echo -n $MESSAGE | openssl dgst -sha256 -hmac $SECRET -binary | base6
 wscat -H "x-auth-key: $APIKEY" \
   -H "x-auth-signature: $SIGNATURE" \
   -H "x-auth-timestamp: $TIMESTAMP" \
-  -c wss://bitmax.io/1/api/pro/v1/stream -w 1 -x '{"op":"sub", "id": "abc123", "ch": "order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo:BTMX/USDT"}'
+  -c wss://bitmax.io/1/api/pro/v1/stream -w 1 -x '{"op":"sub", "id": "abc123", "ch": "futures-order"}'
 ```
 
 ```python

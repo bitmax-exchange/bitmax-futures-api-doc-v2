@@ -30,6 +30,7 @@ includes:
   - rest_prv_order_cancel_all
   - rest_prv_order_open
   - wss
+  - wss_general
   - wss_pub
   - wss_pub_futures_pricing_data
   - wss_prv
