@@ -33,6 +33,10 @@ includes:
   - wss_general
   - wss_pub
   - wss_pub_futures_pricing_data
+  - wss_sub_level1
+  - wss_sub_level2
+  - wss_sub_trades
+  - wss_sub_bar
   - wss_prv
   - wss_prv_auth
   - wss_prv_order
