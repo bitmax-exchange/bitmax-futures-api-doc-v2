@@ -400,6 +400,18 @@
                           <li>
                             <a href="#channel-futures-pricing-data" class="toc-h3 toc-link" data-title="Channel: Futures Pricing Data">Channel: Futures Pricing Data</a>
                           </li>
+                          <li>
+                            <a href="#channel-level-1-order-book-data-bbo" class="toc-h3 toc-link" data-title="Channel: Level 1 Order Book Data (BBO)">Channel: Level 1 Order Book Data (BBO)</a>
+                          </li>
+                          <li>
+                            <a href="#channel-level-2-order-book-updates" class="toc-h3 toc-link" data-title="Channel: Level 2 Order Book Updates">Channel: Level 2 Order Book Updates</a>
+                          </li>
+                          <li>
+                            <a href="#channel-market-trades" class="toc-h3 toc-link" data-title="Channel: Market Trades">Channel: Market Trades</a>
+                          </li>
+                          <li>
+                            <a href="#channel-bar-data" class="toc-h3 toc-link" data-title="Channel: Bar Data">Channel: Bar Data</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -1421,6 +1433,228 @@
 <p><strong>Subscribe to the Channel</strong></p>
 
 <p><code>{&quot;op&quot;:&quot;sub&quot;, &quot;id&quot;:&quot;sample-id&quot;, &quot;ch&quot;:&quot;futures-pricing-data&quot;}</code></p>
+<h3 id='channel-level-1-order-book-data-bbo'>Channel: Level 1 Order Book Data (BBO)</h3>
+<blockquote>
+<p>Subscribe to <code>BTC-PERP</code> quote stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bbo:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Unsubscribe to <code>BTC-PERP</code> quote stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bbo:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>BBO Message </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573068442532</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"9309.11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"0.0197172"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"ask"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"9309.12"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"0.8851266"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>You can subscribe to updates of best bid/offer data stream only. Once subscribed, you will receive BBO message whenever 
+the price and/or size changes at the top of the order book. </p>
+
+<p>Each BBO message contains price and size data for exactly one bid level and one ask level. </p>
+<h3 id='channel-level-2-order-book-updates'>Channel: Level 2 Order Book Updates</h3>
+<blockquote>
+<p>Subscribe to <code>BTC-PERP</code> depth updates stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"depth:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Unsubscribe to <code>BTC-PERP</code> depth updates stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"depth:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>The Depth Message </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573069021376</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">2097965</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0.06844"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"10760"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0.06777"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"562.4"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0.05"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"221760.6"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>If you want to keep track of the most recent order book snapshot in its entirety, the most efficient way is to subscribe to the <code>depth</code> channel. </p>
+
+<p>Each <code>depth</code> message contains a <code>bids</code> list and an <code>asks</code> list in its <code>data</code> field. Each list contains a series of <code>[price, size]</code> pairs that 
+you can use to update the order book snapshot. In the message, <code>price</code> is always positive and <code>size</code> is always non-negative. </p>
+
+<ul>
+<li>if <code>size</code> is positive and the <code>price</code> doesn&#39;t exist in the current order book, you should <strong>add</strong> a new level <code>[price, size]</code>. </li>
+<li>if <code>size</code> is positive and the <code>price</code> exists in the current order book, you should <strong>update</strong> the existing level to <code>[price, size]</code>. </li>
+<li>if <code>size</code> is zero, you should <strong>delete</strong> the level at <code>price</code>. </li>
+</ul>
+
+<p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py">Orderbook Snapshot</a> for code examples.</p>
+<h3 id='channel-market-trades'>Channel: Market Trades</h3>
+<blockquote>
+<p>Subscribe to <code>BTC-PERP</code> market trades stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"trades:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Unsubscribe to <code>BTC-PERP</code> market trades stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"trades:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Trade Message </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"q"</span><span class="p">:</span><span class="w">      </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bm"</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">144115188077966308</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
+value into one aggregated item. Each trade object contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>seqnum</code></td>
+<td><code>Long</code></td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td><code>String</code></td>
+<td>the executed price expressed as a string</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>String</code></td>
+<td>the aggregated traded amount expressed as string</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>the UTC timestamp in milliseconds of the first trade</td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>Boolean</code></td>
+<td>if true, the buyer of the trade is the maker.</td>
+</tr>
+</tbody></table>
+<h3 id='channel-bar-data'>Channel: Bar Data</h3>
+<blockquote>
+<p>Subscribe to <code>BTC-PERP</code> 1 minute bar stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bar:1:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Unsubscribe to <code>BTC-PERP</code> 1 minute bar stream</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bar:1:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w">  </span><span class="err">Alternatively,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">streams</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTC-PERP</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bar:*:BTC-PERP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">Or</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">minute</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">stream</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bar:1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">Or</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">stream</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="nl">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="nl">"ch"</span><span class="p">:</span><span class="s2">"bar"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Bar Data Message </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">    
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"i"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575398940000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"o"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04993"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"c"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04970"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"h"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04993"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"l"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04970"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"v"</span><span class="p">:</span><span class="w">  </span><span class="s2">"8052"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
+value into one aggregated item. Each trade object contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>seqnum</code></td>
+<td><code>Long</code></td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td><code>String</code></td>
+<td>the executed price expressed as a string</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>String</code></td>
+<td>the aggregated traded amount expressed as string</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>the UTC timestamp in milliseconds of the first trade</td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>Boolean</code></td>
+<td>if true, the buyer of the trade is the maker.</td>
+</tr>
+</tbody></table>
 <h2 id='private-stream-data'>Private Stream Data</h2><h3 id='authenticate-a-websocket-session'>Authenticate a WebSocket Session</h3>
 <p>You must authenticate the websocket session in order to recieve private data and send account specific requests 
 (e.g. placing new orders). </p>
