@@ -3,7 +3,7 @@
 Base endpoints:
 
 * Testnet: 
-  * Public endpoint: `wss://api-test.bitmax-sandbox.io/api/pro/v2/stream`
+  * Public endpoint: `wss://api-test.bitmax-sandbox.io:443/api/pro/v2/stream`
   * Private endpoint: `wss://api-test.bitmax-sandbox.io:443/<grp>/api/pro/v2/stream`
 * Mainnet: not available yet
 
