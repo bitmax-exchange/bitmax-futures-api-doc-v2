@@ -63,3 +63,7 @@ You accounts will automatically receive initial funding.
 Please expect the testnet to be reset every a few days. 
 
 
+## Demo Code
+
+Python Demo: [https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2](https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2)
+
