@@ -30,7 +30,7 @@
 
 **HTTP Request** 
 
-`GET /api/pro/v1/info`
+`GET /api/pro/v2/account/info`
 
 **Signature**
 
@@ -38,7 +38,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **prehash string** 
 
-`<timestamp>+info`
+`v2/account/info`
 
 Obtain the account information. 
 
