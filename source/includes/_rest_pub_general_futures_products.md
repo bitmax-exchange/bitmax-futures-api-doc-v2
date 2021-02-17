@@ -9,9 +9,8 @@
         {
             "symbol"          : "BTC-PERP",
             "status"          : "Normal",
-            "displayName"     : "BTCUSDT",      // the name displayed on the webpage
-            "baseAsset"       : "BTCP",         // base asset
-            "quoteAsset"      : "USDT",         // quote asset
+            "displayName"     : "BTCUSDT",    // the name displayed on the webpage
+            "settlementAsset" : "USDT",       // settlement asset
             "underlying"      : "BTC/USDT",
             "tradingStartTime": 1579701600000,
             "collapseDecimals": "1,0.1,0.01",
