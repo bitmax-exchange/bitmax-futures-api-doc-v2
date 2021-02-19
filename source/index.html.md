@@ -25,6 +25,7 @@ includes:
   - rest_prv_account_change_leverage
   - rest_prv_account_transfer
   - rest_prv_order
+  - rest_prv_order_generate_id
   - rest_prv_order_new
   - rest_prv_order_cancel
   - rest_prv_order_cancel_all

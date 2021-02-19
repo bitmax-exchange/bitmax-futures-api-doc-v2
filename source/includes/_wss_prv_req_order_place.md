@@ -61,6 +61,12 @@ Make new order request follow the general websocket request rule, with proper pl
 
 see [placing order via RESTful API](#new-order).
 
+*id*
+
+As described in [Generate Order Id](#generate-order-id), the server uses a deterministic algorithm to compute the orderId based on client inputs. For order requests placed via WebSocket, the server will use 
+the `id` from the request `args`; if `id` is not provided in `args`, the server will fallback to the top level request `id`; if both `id`s are not present, the server will use a random string. 
+
+
 **Response**
 
 Respond with *m* field as *order*, and *action* field as *place-order*; 
