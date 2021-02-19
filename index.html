@@ -2157,8 +2157,13 @@ wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class
 
 <p><em>id</em></p>
 
-<p>As described in <a href="#generate-order-id">Generate Order Id</a>, the server uses a deterministic algorithm to compute the orderId based on client inputs. For order requests placed via WebSocket, the server will use 
-the <code>id</code> from the request <code>args</code>; if <code>id</code> is not provided in <code>args</code>, the server will fallback to the top level request <code>id</code>; if both <code>id</code>s are not present, the server will use a random string. </p>
+<p>As described in <a href="#generate-order-id">Generate Order Id</a>, the server uses a deterministic algorithm to compute the orderId based on client inputs. For order requests placed via WebSocketL</p>
+
+<ul>
+<li>the server will use the <code>id</code> from the request <code>args</code>; </li>
+<li>if <code>id</code> is not provided in <code>args</code>, the server will fallback to the top level request <code>id</code>; </li>
+<li>if both <code>id</code>s are not present, the server will use a random string.</li>
+</ul>
 
 <p><strong>Response</strong></p>
 
@@ -2218,8 +2223,8 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
    </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">300006</span><span class="p">,</span><span class="w">
    </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="s2">"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2275,10 +2280,10 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
 <p>Successful ACK message</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ac"</span><span class="p">:</span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">""</span><span class="w">
@@ -2295,8 +2300,8 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
    </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"INVALID_PRODUCT"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="s2">"Invalid Product Symbol"</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_PRODUCT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Product Symbol"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
