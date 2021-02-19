@@ -29,18 +29,28 @@
 
 ```json
 {
-    "m": "order",
-    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-    "ac": "FUTURES",
-    "action": "cancel-all",
-    "status": "Ack",
-    "info": {
-        "symbol":    "",
-        "orderType": "NULL_VAL",
-        "timestamp":  1613742809754,
-        "id":        "69c482a3f29540a0b0d83e00551bb623",
-        "orderId":   ""
-    }
+   "m":"order",
+   "action":"cancel-all",
+   "ac":"FUTURES",
+   "code":0,
+   "info":{
+      "symbol":""
+   }
+}
+```
+
+> Error response message
+
+```json
+{
+   "m":"order",
+   "action":"cancel-all",
+   "ac":"FUTURES",
+   "code":300012,
+   "info":{
+      "reason":"INVALID_PRODUCT",
+      "errorMsg":"Invalid Product Symbol"
+   }
 }
 ```
 
@@ -48,10 +58,14 @@ Cancel all open orders on account level via websocket with optional symbol.
 
 **Request**
 
-Make general websocket request with `action` field as `cancel-All` and set proper `account` value(`cash`, or `margin`, or `futures`), and provide *time* value in *args*.
+Make general websocket request with `action` field as `cancel-All` and set proper `ac` value(`futures`), and provide *symbol* value in *args*.
 
 **Response**
 
-With *status* field as *Ack* to indicate this cancel all order request has been received by server and sent to matching engine. 
+With *code* field as *zero* to indicate this cancel all order request has been received by server and sent to matching engine. 
 
-*info* field provide some detail: if you provide *id* in your request, it will be echoed back as *id* to help you match ack with request.
+*info* field provide some detail: if you provide *symbol* in your request to cancel orders.
+
+With *code* field as *non-zero* to indicate there is some obvisous errors in your request. 
+
+*info* field provide some detail: we also provide error *reason* and *errorMsg* detail.

@@ -6,10 +6,7 @@
 {
    "op":"req",
    "id":"abc123456",
-   "action":"futures-account-snapshot",
-   "args":{
-      "symbol":"BTC-PERP"
-   }
+   "action":"futures-account-snapshot"
 }
 ```
 
@@ -22,7 +19,7 @@
    "e":"ClientRequest",
    "t":1613748277356,
    "acc":"futH9N59hR0BMVEjHnBleHLn0mfUl5lo",
-   "at":"FUTURES",
+   "ac":"FUTURES",
    "sn":-1,
    "col":[
       {
@@ -64,7 +61,7 @@
 }
 ```
 
-You can request the futures account asset snapshot via websocket by an `futures-account-snapshot` request. 
+You can request the futures account asset snapshot via websocket by a `futures-account-snapshot` action. 
 
 The request schema:
 
@@ -72,14 +69,8 @@ The request schema:
 -------------- | ------------------- | -------------------------- 
  `op`          | `String`            | `req`                      
  `action`      | `String`            | `futures-account-snapshot`  
- `id`          | `String`            | for result match purpose
- `account`     | `String`            | `cash`, `margin`, `futures`         
- `args:symbols`| `Optional[String]`  | add the (optional) symbol filter, see below for details.
+ `id`          | `String`            | for result match purpose       
 
-The `symbols` key in the `args` map allows you to customize the symbol filter in a flexible way:
 
-* to query futures account asset snapshot of the **a specific symbol**, set `symbols` to a valid symbol code. For instance, `{"symbols": "BTC-PERP"}`
-* to query futures account asset snapshot of **multiple symbols**, set `symbols` to comma separated string of valid symbol codes. For instance, `{"symbols": "BTC-PERP,ETH-PERP"}` allows you to query open orders of both `BTC-PERP` and `ETH-PERP` at the same time.
-* to query **all futures account asset snapshot**, you may either use the wild card (`{"symbols": "*"}`) or simply omit the `symbols` key (`{}`). 
 
     

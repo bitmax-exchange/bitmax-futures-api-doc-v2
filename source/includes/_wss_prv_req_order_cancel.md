@@ -6,7 +6,6 @@
 {
    "op":"req",
    "action":"cancel-order",
-   "account":"futures",
    "ac":"futures",
    "args":{
       "time":1613744943323,
@@ -20,33 +19,14 @@
 
 ```json
 {
+   "m":"order",
+   "action":"cancel-order",
    "ac":"FUTURES",
-   "accountId":"futH9N59hR0BMVEjHnBleHLn0mfUl5lo",
-   "time":1613744944323,
-   "orderId":"s177bab1b474U5051470287bbtcpKiOR",
-   "seqNum":552,
-   "orderType":"Limit",
-   "execInst":"NULL_VAL",
-   "side":"Buy",
-   "symbol":"BTC-PERP",
-   "price":"32400",
-   "orderQty":"0.12",
-   "stopPrice":"0",
-   "stopBy":"",
-   "status":"New",
-   "lastExecTime":1613744944330,
-   "lastQty":"0",
-   "lastPx":"0",
-   "avgFilledPx":"0",
-   "cumFilledQty":"0",
-   "fee":"0",
-   "cumFee":"0",
-   "feeAsset":"USDT",
-   "errorCode":"",
-   "posStopLossPrice":"0",
-   "posStopLossTrigger":"market",
-   "posTakeProfitPrice":"0",
-   "posTakeProfitTrigger":"market"
+   "code":0,
+   "info":{
+      "orderId":"s177bab1b474U5051470287bbtcpKiOR",
+      "symbol":"BTC-PERP"
+   }
 }
 ```
 
@@ -54,17 +34,14 @@
 
 ```json
 {
-  "accountId": "futH9N59hR0BMVEjHnBleHLn0mfUl5lo",
-  "ac": "FUTURES",
-  "action": "cancel-order",
-  "status": "Ack",
-  "info": {
-    "code":     300006,
-    "id":      "x@fabs",
-    "message": "Invalid Client Order Id: x@fabs",
-    "symbol":  "BTC-PERP",
-    "reason":  "INVALID_ORDER_ID"
-  }
+   "m":"order",
+   "action":"cancel-order",
+   "ac":"FUTURES",
+   "code":300006,
+   "info":{
+      "reason":"INVALID_ORDER_ID",
+      "errorMsg":"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"
+   }
 }
 ```
 
@@ -76,14 +53,17 @@ Make order cancelling request follow the general websocket request rule by setti
 
 **Response**
 
-*ACK* 
+Respond with *m* field as *order*, and *action* field as *cancel-order*; 
+*code* field to indicate if this is a successful *zero* or failed *non-zero*.
 
-With *status* field as *Ack* to indicate this cancel order request pass some basic sanity check, and has been sent to matching engine. 
+*code=0* 
 
-*info* field provide some detail: if you provide *id* in your request, it will be echoed back as *id* to help you idintify; we also echo back target *orderId* to be cancelled.  
+With *code* field as *zero* to indicate this cancel order request pass some basic sanity check, and has been sent to matching engine. 
 
-*Err*
+*info* field provide some detail: if you provide *symbol* in your request, it will be echoed back as *symbol* to help you idintify; we also echo back target *orderId* to be cancelled.  
 
-With *status* field as *Err* to indicate there is some obvisous errors in your cancel order request. 
+*code=non-zero*
 
-*info* field provide some detail: if you provide *id* in your request, it will be echoed back as *id* to help you identify; we also provide error *code*, *reason*, and *message* detail.
+With *code* field as *non-zero* to indicate there is some obvisous errors in your cancel order request. 
+
+*info* field provide some detail: we also provide error *reason* and *errorMsg* detail.

@@ -51,16 +51,15 @@
 ]
 ```
 
-You can request the open order via websocket by an `futures-open-orders` request. 
+You can request the open order via websocket by a `futures-open-orders` action. 
 
 The request schema:
 
  Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
  `op`          | `String`            | `req`                      
- `action`      | `String`            | `open-order`  
- `id`          | `String`            | for result match purpose
- `account`     | `String`            | `cash`, `margin`, `futures`         
+ `action`      | `String`            | `futures-open-orders`  
+ `id`          | `String`            | for result match purpose       
  `args:symbols`| `Optional[String]`  | add the (optional) symbol filter, see below for details.
 
 The `symbols` key in the `args` map allows you to customize the symbol filter in a flexible way:
@@ -69,13 +68,4 @@ The `symbols` key in the `args` map allows you to customize the symbol filter in
 * to query open orders of **multiple symbols**, set `symbols` to comma separated string of valid symbol codes. For instance, `{"symbols": "BTC-PERP,ETH-PERP"}` allows you to query open orders of both `BTC-PERP` and `ETH-PERP` at the same time.
 * to query **all open orders**, you may either use the wild card (`{"symbols": "*"}`) or simply omit the `symbols` key (`{}`). 
 
-
-The response schema:
-
- Name               | Data Type             | Description                   
---------------------| --------------------- | ----------------------------- 
- `m`                | `String`              | `futures-order`
- `accountId`        | `String`              | account  
- `ac`               | `String`              | `cash`, `margin`, `FUTURES`
- `id`               | `String`              | echo id in request
- `data`             | `Order Json Array`    | A list of open order json objects        
+   
