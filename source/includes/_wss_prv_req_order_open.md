@@ -57,10 +57,10 @@ The request schema:
 
  Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
- `op`          | `String`            | `req`                      
- `action`      | `String`            | `futures-open-orders`  
- `id`          | `String`            | for result match purpose       
- `args:symbols`| `Optional[String]`  | add the (optional) symbol filter, see below for details.
+ op            | String              | `req`                      
+ action        | String              | `futures-open-orders`  
+ id            | String              | for result match purpose       
+ args:symbols  | Optional[String]    | add the (optional) symbol filter, see below for details.
 
 The `symbols` key in the `args` map allows you to customize the symbol filter in a flexible way:
 
