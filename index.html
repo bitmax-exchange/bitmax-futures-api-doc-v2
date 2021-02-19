@@ -450,7 +450,7 @@
                     <a href="#websocket-data-request" class="toc-h2 toc-link" data-title="WebSocket - Data Request">WebSocket - Data Request</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#ws-query-futures-account-asset-snapshot" class="toc-h3 toc-link" data-title="WS: Query Futures Account Asset Snapshot">WS: Query Futures Account Asset Snapshot</a>
+                            <a href="#ws-account-snapshot" class="toc-h3 toc-link" data-title="WS: Account Snapshot">WS: Account Snapshot</a>
                           </li>
                           <li>
                             <a href="#ws-place-order" class="toc-h3 toc-link" data-title="WS: Place Order">WS: Place Order</a>
@@ -2002,32 +2002,32 @@ wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class
 <p><strong>Subscribe to the Channel</strong></p>
 
 <p><code>{&quot;op&quot;:&quot;sub&quot;, &quot;id&quot;:&quot;sample-id&quot;, &quot;ch&quot;:&quot;futures-account-update&quot;}</code></p>
-<h2 id='websocket-data-request'>WebSocket - Data Request</h2><h3 id='ws-query-futures-account-asset-snapshot'>WS: Query Futures Account Asset Snapshot</h3>
+<h2 id='websocket-data-request'>WebSocket - Data Request</h2><h3 id='ws-account-snapshot'>WS: Account Snapshot</h3>
 <blockquote>
-<p>Requesting Futures Account Asset Snapshot</p>
+<p>Requesting Futures Account Snapshot</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"op"</span><span class="p">:</span><span class="s2">"req"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"futures-account-snapshot"</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-account-snapshot"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Futures Account Asset Snapshot response</p>
+<p>Futures Account Snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"m"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-account-snapshot"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"e"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"ClientRequest"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"t"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">1613748277356</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"acc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"futH9N59hR0BMVEjHnBleHLn0mfUl5lo"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ac"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"sn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"col"</span><span class="p">:[</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-account-snapshot"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">message</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"e"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"ClientRequest"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">event</span><span class="w"> </span><span class="err">name</span><span class="w">
+   </span><span class="nl">"t"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">1613748277356</span><span class="p">,</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds</span><span class="w"> </span><span class="err">(UTC)</span><span class="w">
+   </span><span class="nl">"acc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"futH9N59hR0BMVEjHnBleHLn0mfUl5lo"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">accountId</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">category</span><span class="w">
+   </span><span class="nl">"sn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">9982</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
+   </span><span class="nl">"col"</span><span class="p">:[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">collateral</span><span class="w"> </span><span class="err">balances</span><span class="w">
       </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.95"</span><span class="w">
+         </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">collateral</span><span class="w"> </span><span class="err">asset</span><span class="w"> </span><span class="err">code</span><span class="w">
+         </span><span class="nl">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">collateral</span><span class="w"> </span><span class="err">balance</span><span class="w">
+         </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.95"</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">discount</span><span class="w"> </span><span class="err">factor</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
          </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
@@ -2040,29 +2040,29 @@ wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class
          </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">],</span><span class="w">
-   </span><span class="nl">"pos"</span><span class="p">:[</span><span class="w">
+   </span><span class="nl">"pos"</span><span class="p">:[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">positions</span><span class="w">
       </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"s"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"sd"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"pos"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"rc"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"up"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"rp"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"aop"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"boon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"soon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"mt"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"crossed"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"lev"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"iw"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"tp"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"tpt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"sl"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"slt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="w">
+         </span><span class="nl">"s"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">symbol</span><span class="w">
+         </span><span class="nl">"sd"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">side:</span><span class="w"> </span><span class="err">LONG</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">SHORT</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">NULL_VAL</span><span class="w">
+         </span><span class="nl">"pos"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">position</span><span class="w">
+         </span><span class="nl">"rc"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">reference</span><span class="w"> </span><span class="err">cost</span><span class="w">
+         </span><span class="nl">"up"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">unrealized</span><span class="w"> </span><span class="err">pnl</span><span class="w">
+         </span><span class="nl">"rp"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">realized</span><span class="w"> </span><span class="err">pnl</span><span class="w">
+         </span><span class="nl">"aop"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">average</span><span class="w"> </span><span class="err">opening</span><span class="w"> </span><span class="err">price</span><span class="w">
+         </span><span class="nl">"mt"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"crossed"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">margin</span><span class="w"> </span><span class="err">type:</span><span class="w"> </span><span class="err">isolated</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">cross</span><span class="w">
+         </span><span class="nl">"boon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">buy</span><span class="w"> </span><span class="err">open</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">notional</span><span class="w">
+         </span><span class="nl">"soon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">sell</span><span class="w"> </span><span class="err">open</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">notional</span><span class="w">
+         </span><span class="nl">"lev"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">leverage</span><span class="w">
+         </span><span class="nl">"iw"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">isolated</span><span class="w"> </span><span class="err">margin</span><span class="w">
+         </span><span class="nl">"tp"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">take</span><span class="w"> </span><span class="err">profit</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">(by</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">exit</span><span class="w"> </span><span class="err">order)</span><span class="w">
+         </span><span class="nl">"tpt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">take</span><span class="w"> </span><span class="err">profit</span><span class="w"> </span><span class="err">trigger</span><span class="w"> </span><span class="err">(by</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">exit</span><span class="w"> </span><span class="err">order)</span><span class="w">
+         </span><span class="nl">"sl"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">loss</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">(by</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">exit</span><span class="w"> </span><span class="err">order)</span><span class="w">
+         </span><span class="nl">"slt"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">loss</span><span class="w"> </span><span class="err">trigger</span><span class="w"> </span><span class="err">(by</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">exit</span><span class="w"> </span><span class="err">order)</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>You can request the futures account asset snapshot via websocket by a <code>futures-account-snapshot</code> action. </p>
+<p>You can request the futures account snapshot via websocket by a <code>futures-account-snapshot</code> action. </p>
 
 <p>The request schema:</p>
 
@@ -2074,18 +2074,18 @@ wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class
 </tr>
 </thead><tbody>
 <tr>
-<td><code>op</code></td>
-<td><code>String</code></td>
+<td>op</td>
+<td>String</td>
 <td><code>req</code></td>
 </tr>
 <tr>
-<td><code>action</code></td>
-<td><code>String</code></td>
+<td>action</td>
+<td>String</td>
 <td><code>futures-account-snapshot</code></td>
 </tr>
 <tr>
-<td><code>id</code></td>
-<td><code>String</code></td>
+<td>id</td>
+<td>String</td>
 <td>for result match purpose</td>
 </tr>
 </tbody></table>
