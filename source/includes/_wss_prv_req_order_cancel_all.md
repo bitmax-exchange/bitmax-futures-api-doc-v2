@@ -31,10 +31,10 @@
 
 ```json
 {
-   "m":"order",
-   "code":0,
-   "action":"cancel-all",
-   "ac":"FUTURES",
+   "m"     : "order",
+   "code"  : 0,
+   "action": "cancel-all",
+   "ac"    : "FUTURES",
    "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
       "symbol":""
@@ -52,8 +52,8 @@
    "ac"    : "FUTURES",
    "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
-      "reason":"INVALID_PRODUCT",
-      "errorMsg":"Invalid Product Symbol"
+      "reason"  : "INVALID_PRODUCT",
+      "errorMsg": "Invalid Product Symbol"
    }
 }
 ```
