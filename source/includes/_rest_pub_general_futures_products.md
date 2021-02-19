@@ -17,14 +17,12 @@
             "priceFilter": {
                 "minPrice"  : "0.25",     // the order price cannot be smaller than the minPrice
                 "maxPrice"  : "1000000",  // the order price cannot be greater than the maxPrice
-                "tickSize"  : "0.25",     // the order price must be a multiple of the tickSize
-                "priceScale": 2
+                "tickSize"  : "0.25"      // the order price must be a multiple of the tickSize
             },
             "lotSizeFilter": {
                 "minQty"  : "0.0001",     // the order quantity cannot be smaller than the minQty
                 "maxQty"  : "1000000000", // the order quantity cannot be greater than the maxQty
-                "lotSize" : "0.0001",     // the order quantity must be a multiple of the lotSize
-                "qtyScale": 4
+                "lotSize" : "0.0001"      // the order quantity must be a multiple of the lotSize
             },
             "marginRequirements": [
                 {
