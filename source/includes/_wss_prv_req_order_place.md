@@ -4,19 +4,20 @@
 
 ```json
 {
-   "op":"req",
-   "action":"place-order",
-   "ac":"futures",
+   "op"    : "req",
+   "action": "place-order",
+   "ac"    : "futures",         // the Account Category
+   "id"    : "sampleRequestID", // the server will echo back this id in the ack message. 
    "args":{
-      "time":1613753879921,
-      "id":"22eb9a8355fc41bd9bf5b08bc0d18f6c",
-      "symbol":"BTC-PERP",
-      "orderPrice":"30000",
-      "orderQty":"0.12",
-      "orderType":"limit",
-      "side":"buy",
-      "postOnly":false,
-      "respInst":"ACK"
+      "time"      : 1613753879921,
+      "id"        : "sampleOrderId",  // optional, the server will use this id to generate the orderId.
+      "symbol"    : "BTC-PERP",
+      "orderPrice": "30000",
+      "orderQty"  : "0.12",
+      "orderType" : "limit",
+      "side"      : "buy",
+      "postOnly"  : false,
+      "respInst"  : "ACK"
    }
 }
 ```
@@ -25,14 +26,14 @@
 
 ```json
 {
-   "m":"order",
-   "id":"22eb9a8355fc41bd9bf5b08bc0d18f6c",
-   "action":"place-order",
-   "ac":"FUTURES",
-   "code":0,
-   "info":{
-      "orderId":"s177bb3a0d71U5051470287bc0d18f6c",
-      "symbol":"BTC-PERP"
+   "m"     : "order",
+   "code"  : 0,
+   "id"    : "sampleRequestID",   // echo back the original request Id
+   "action": "place-order",
+   "ac"    : "FUTURES",
+   "info": {
+      "orderId": "s177bbb671b7U1234567890leOrderId",
+      "symbol" : "BTC-PERP"
    }
 }
 ```
@@ -40,14 +41,14 @@
 
 ```json
 {
-   "m":"order",
-   "id":"22eb9a8355fc41bd9bf5b08bc0d18f6c",
-   "action":"place-order",
-   "ac":"FUTURES",
-   "code":300001,
-   "info":{
-      "reason":"INVALID_PRICE",
-      "errorMsg":"Order price is too low from market price."
+   "m"     : "order",
+   "code"  : 300001,
+   "id"    : "sampleRequestID",  // echo back the original request Id
+   "action": "place-order",
+   "ac"    : "FUTURES",
+   "info": {
+      "reason"  : "INVALID_PRICE",
+      "errorMsg": "Order price is too low from market price."
    }
 }
 ```

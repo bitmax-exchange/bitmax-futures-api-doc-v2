@@ -4,10 +4,11 @@
 
 ```json
 {
-   "op":"req",
-   "action":"cancel-all",
-   "ac":"futures",
-   "args":{      
+   "op"    : "req",
+   "action": "cancel-all",
+   "ac"    : "futures",
+   "id"    : "sampleRequestId", // server will echo back this Id.
+   "args": {   // you can also omit the args field
    }
 }
 ```
@@ -16,9 +17,10 @@
 
 ```json
 {
-   "op":"req",
-   "action":"cancel-all",
-   "ac":"futures",
+   "op"    : "req",
+   "action": "cancel-all",
+   "ac"    : "futures",
+   "id"    : "sampleRequestId", // server will echo back this Id.
    "args":{ 
         "symbol": "BTC-PERP"     
    }
@@ -30,9 +32,10 @@
 ```json
 {
    "m":"order",
+   "code":0,
    "action":"cancel-all",
    "ac":"FUTURES",
-   "code":0,
+   "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
       "symbol":""
    }
@@ -43,10 +46,11 @@
 
 ```json
 {
-   "m":"order",
-   "action":"cancel-all",
-   "ac":"FUTURES",
-   "code":300012,
+   "m"     : "order",
+   "code"  : 300012,
+   "action": "cancel-all",
+   "ac"    : "FUTURES",
+   "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
       "reason":"INVALID_PRODUCT",
       "errorMsg":"Invalid Product Symbol"

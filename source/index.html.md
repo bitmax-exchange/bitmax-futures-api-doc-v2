@@ -41,6 +41,10 @@ includes:
   - wss_prv_auth
   - wss_prv_order
   - wss_prv_account_update
+  - wss_prv_req
+  - wss_prv_req_order_place
+  - wss_prv_req_order_cancel
+  - wss_prv_req_order_cancel_all
   - appendix
   - appendix_enum
 

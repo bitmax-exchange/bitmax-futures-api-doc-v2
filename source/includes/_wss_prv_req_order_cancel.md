@@ -4,9 +4,10 @@
 
 ```json
 {
-   "op":"req",
-   "action":"cancel-order",
-   "ac":"futures",
+   "op"    : "req",
+   "action": "cancel-order",
+   "ac"    : "futures",
+   "id"    : "sampleRequestId",    // server will echo back this Id.
    "args":{
       "time":1613744943323,
       "orderId":"s177bab1b474U5051470287bbtcpKiOR",
@@ -19,13 +20,14 @@
 
 ```json
 {
-   "m":"order",
-   "action":"cancel-order",
-   "ac":"FUTURES",
+   "m"     : "order",
+   "action": "cancel-order",
+   "ac"    : "FUTURES",
+   "id"    : "sampleRequestId", // echo back the original request Id
    "code":0,
    "info":{
-      "orderId":"s177bab1b474U5051470287bbtcpKiOR",
-      "symbol":"BTC-PERP"
+      "orderId": "s177bab1b474U5051470287bbtcpKiOR",
+      "symbol" : "BTC-PERP"
    }
 }
 ```
@@ -34,10 +36,11 @@
 
 ```json
 {
-   "m":"order",
-   "action":"cancel-order",
-   "ac":"FUTURES",
-   "code":300006,
+   "m"     : "order",
+   "action": "cancel-order",
+   "ac"    : "FUTURES",
+   "code"  : 300006,
+   "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
       "reason":"INVALID_ORDER_ID",
       "errorMsg":"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"
