@@ -443,6 +443,20 @@
                           </li>
                       </ul>
                   </li>
+                  <li>
+                    <a href="#websocket-data-request" class="toc-h2 toc-link" data-title="WebSocket - Data Request">WebSocket - Data Request</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#ws-place-order" class="toc-h3 toc-link" data-title="WS: Place Order">WS: Place Order</a>
+                          </li>
+                          <li>
+                            <a href="#ws-cancel-order" class="toc-h3 toc-link" data-title="WS: Cancel Order">WS: Cancel Order</a>
+                          </li>
+                          <li>
+                            <a href="#ws-cancel-all-orders" class="toc-h3 toc-link" data-title="WS: Cancel All Orders">WS: Cancel All Orders</a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -519,12 +533,14 @@
             </span><span class="nl">"priceFilter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"minPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">smaller</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minPrice</span><span class="w">
                 </span><span class="nl">"maxPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">greater</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maxPrice</span><span class="w">
-                </span><span class="nl">"tickSize"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tickSize</span><span class="w">
+                </span><span class="nl">"tickSize"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tickSize</span><span class="w">
+                </span><span class="nl">"priceScale"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"lotSizeFilter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"minQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">smaller</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minQty</span><span class="w">
                 </span><span class="nl">"maxQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">greater</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maxQty</span><span class="w">
-                </span><span class="nl">"lotSize"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">lotSize</span><span class="w">
+                </span><span class="nl">"lotSize"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">lotSize</span><span class="w">
+                </span><span class="nl">"qtyScale"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"marginRequirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -673,7 +689,7 @@
 </span></code></pre></div>
 <p><strong>HTTP Request</strong> </p>
 
-<p><code>GET /api/pro/v1/info</code></p>
+<p><code>GET /api/pro/v2/account/info</code></p>
 
 <p><strong>Signature</strong></p>
 
@@ -681,7 +697,7 @@
 
 <p><strong>prehash string</strong> </p>
 
-<p><code>&lt;timestamp&gt;+info</code></p>
+<p><code>v2/account/info</code></p>
 
 <p>Obtain the account information. </p>
 
@@ -1963,6 +1979,221 @@ wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class
 <p><strong>Subscribe to the Channel</strong></p>
 
 <p><code>{&quot;op&quot;:&quot;sub&quot;, &quot;id&quot;:&quot;sample-id&quot;, &quot;ch&quot;:&quot;futures-account-update&quot;}</code></p>
+<h2 id='websocket-data-request'>WebSocket - Data Request</h2><h3 id='ws-place-order'>WS: Place Order</h3>
+<blockquote>
+<p>Request to place new order</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Account</span><span class="w"> </span><span class="err">Category</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestID"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">id</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ack</span><span class="w"> </span><span class="err">message.</span><span class="w"> 
+   </span><span class="nl">"args"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"time"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">1613753879921</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleOrderId"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">optional</span><span class="p">,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">use</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">id</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">orderId.</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"side"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"postOnly"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"respInst"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"ACK"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Successful ACK message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestID"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s177bbb671b7U1234567890leOrderId"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">300001</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestID"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_PRICE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order price is too low from market price."</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Place order via websocket </p>
+
+<p><strong>Request</strong></p>
+
+<p>Make new order request follow the general websocket request rule, with proper place new order parameters as specified in rest api for <em>args</em> field.</p>
+
+<p>see <a href="#new-order">placing order via RESTful API</a>.</p>
+
+<p><strong>Response</strong></p>
+
+<p>Respond with <em>m</em> field as <em>order</em>, and <em>action</em> field as <em>place-order</em>; 
+if you provide <em>id</em> in your request, it will be echoed back as <em>id</em> to help you identify; 
+<em>code</em> field to indicate if this is a successful <em>zero</em> or failed <em>non-zero</em>.</p>
+
+<p><em>code=0</em> </p>
+
+<p>With <em>code</em> field as <em>zero</em> to indicate this new order request pass some basic sanity check, and has been sent to matching engine. </p>
+
+<p><em>info</em> field provide some detail: if you provide <em>id</em> in your request, it will be echoed back as <em>id</em> to help you identify; we also provide server side generated <em>orderId</em>, which is the id you should use for future track or action on the order.  </p>
+
+<p><em>code=non-zero</em> </p>
+
+<p>With <em>code</em> field as <em>non-zero</em> to indicate there is some obvisous errors in your request. </p>
+
+<p><em>info</em> field provide some detail: we also provide error <em>reason</em> and <em>errorMsg</em> detail.</p>
+<h3 id='ws-cancel-order'>WS: Cancel Order</h3>
+<blockquote>
+<p>Request to cancel existing open order</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">Id.</span><span class="w">
+   </span><span class="nl">"args"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="mi">1613744943323</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"s177bab1b474U5051470287bbtcpKiOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Successful ACK message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s177bab1b474U5051470287bbtcpKiOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">300006</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="s2">"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Cancel an existing open order via websocket </p>
+
+<p><strong>Request</strong></p>
+
+<p>Make order cancelling request follow the general websocket request rule by setting <code>action</code> to be <code>cancel-orde</code>, with proper cancel order parameters as specified in rest api for <em>args</em> field.</p>
+
+<p><strong>Response</strong></p>
+
+<p>Respond with <em>m</em> field as <em>order</em>, and <em>action</em> field as <em>cancel-order</em>; 
+<em>code</em> field to indicate if this is a successful <em>zero</em> or failed <em>non-zero</em>.</p>
+
+<p><em>code=0</em> </p>
+
+<p>With <em>code</em> field as <em>zero</em> to indicate this cancel order request pass some basic sanity check, and has been sent to matching engine. </p>
+
+<p><em>info</em> field provide some detail: if you provide <em>symbol</em> in your request, it will be echoed back as <em>symbol</em> to help you idintify; we also echo back target <em>orderId</em> to be cancelled.  </p>
+
+<p><em>code=non-zero</em></p>
+
+<p>With <em>code</em> field as <em>non-zero</em> to indicate there is some obvisous errors in your cancel order request. </p>
+
+<p><em>info</em> field provide some detail: we also provide error <em>reason</em> and <em>errorMsg</em> detail.</p>
+<h3 id='ws-cancel-all-orders'>WS: Cancel All Orders</h3>
+<blockquote>
+<p>Request to cancel all existing open orders </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">Id.</span><span class="w">
+   </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">omit</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">args</span><span class="w"> </span><span class="err">field</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Request to cancel existing open order related to symbol &quot;BTC-PERP&quot;</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">Id.</span><span class="w">
+   </span><span class="nl">"args"</span><span class="p">:{</span><span class="w"> 
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">     
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Successful ACK message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="p">:</span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">300012</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"INVALID_PRODUCT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="s2">"Invalid Product Symbol"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Cancel all open orders on account level via websocket with optional symbol.</p>
+
+<p><strong>Request</strong></p>
+
+<p>Make general websocket request with <code>action</code> field as <code>cancel-All</code> and set proper <code>ac</code> value(<code>futures</code>), and provide <em>symbol</em> value in <em>args</em>.</p>
+
+<p><strong>Response</strong></p>
+
+<p>With <em>code</em> field as <em>zero</em> to indicate this cancel all order request has been received by server and sent to matching engine. </p>
+
+<p><em>info</em> field provide some detail: if you provide <em>symbol</em> in your request to cancel orders.</p>
+
+<p>With <em>code</em> field as <em>non-zero</em> to indicate there is some obvisous errors in your request. </p>
+
+<p><em>info</em> field provide some detail: we also provide error <em>reason</em> and <em>errorMsg</em> detail.</p>
 <h1 id='appendix'>Appendix</h1><h2 id='enum-definitions'>ENUM Definitions</h2><h3 id='account-category-ac'>Account Category (<code>ac</code>)</h3>
 <ul>
 <li><code>CASH</code></li>
