@@ -1088,7 +1088,9 @@
 </tbody></table>
 <h2 id='order'>Order</h2><h3 id='generate-order-id'>Generate Order Id</h3>
 <p>We use the following method to generate an unique id for each order place/cancel request. (You could get <code>userUID</code> from <code>Account Info</code> API.)</p>
-<h4 id='method'>Method</h4>
+
+<p><strong>Method</strong></p>
+
 <ul>
 <li><p>A = &#39;a&#39; for order via rest api, or &#39;s&#39; for order via websocket;</p></li>
 <li><p>B = Convert timestamp (in miliseconds) to hex string;</p></li>
@@ -1096,14 +1098,18 @@
 <li><p>D = If user provide client order Id (with length &gt;= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;</p></li>
 <li><p>Final order Id is concatenation of strings A, B, C, D from above steps, i.e., orderId = A + B + C + D.</p></li>
 </ul>
-<h4 id='extra-info-on-id'>Extra info on <code>id</code></h4>
+
+<p><strong>Extra info on <code>id</code></strong></p>
+
 <ul>
 <li><p><code>id</code> value must satisfy regrex pattern <code>&quot;^\w[\w\-]*\w$&quot;</code> (i.e. start and end with word character), and with length up to 32.  (&quot;Invalid Client Order id&quot; error for violation)</p></li>
 <li><p><code>id</code> value with length 9 is recommended, since we take the right most 9 chars for order Id generation.</p></li>
 <li><p><code>id</code> value with length &lt; 9 will not be used in order Id generation, but we still echo it back in order ack message (empty string when no <code>id</code> value provided).</p></li>
 <li><p>If a valid <code>id</code> value is provided when placing order, order Id from server side is pre-determined. This could be helpful for order status check in case of accidently internet connection issue.</p></li>
 </ul>
-<h4 id='code-sample'>Code Sample</h4>
+
+<p><strong>Code Sample</strong></p>
+
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2/blob/80942a5f2414a01c72d2ed660957a9e8d29a511e/cli/util.py#L82">gen server order id</a></p>
 <h3 id='new-order'>New Order</h3>
 <blockquote>
