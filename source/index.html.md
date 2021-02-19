@@ -55,7 +55,7 @@ search: true
 code_clipboard: true
 ---
 
-# Introducing New Futures APIs (Testnet Only)
+# Introducing Futures Pro (v2) APIs (Testnet Only)
 
 ## Testnet 
 
