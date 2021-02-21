@@ -28,8 +28,11 @@ includes:
   - rest_prv_order_generate_id
   - rest_prv_order_new
   - rest_prv_order_cancel
+  - rest_prv_order_new_batch
+  - rest_prv_order_cancel_batch
   - rest_prv_order_cancel_all
   - rest_prv_order_open
+  - rest_prv_order_query_by_id
   - wss
   - wss_general
   - wss_pub

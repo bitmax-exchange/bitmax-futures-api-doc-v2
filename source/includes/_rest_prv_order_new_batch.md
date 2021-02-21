@@ -1,0 +1,74 @@
+### Place Batch Orders
+
+> Place Batch Orders - Request Body
+
+```json
+[
+    {
+        "id"        : "sampleRequestId1",
+        "time"      : 1613878579169,
+        "symbol"    : "BTC-PERP",
+        "orderPrice": "34000",
+        "orderQty"  : "0.1",
+        "orderType" : "limit",
+        "side"      : "buy"
+    },
+    {
+        "id"        : "sampleRequestId2",
+        "time"      : 1613878579169,
+        "symbol"    : "BTC-PERP",
+        "orderPrice": "35000",
+        "orderQty"  : "0.2",
+        "orderType" : "limit",
+        "side"      : "buy"
+    }
+]
+```
+
+> Place Batch Orders - Successful ACK Response (Status 200, code 0)
+
+```json
+{
+    "code": 0,
+    "data": {
+        "meta": {
+            "action"  : "batch-place-order",
+            "respInst": "ACK"
+        },
+        "orders": [
+            {
+                "id"       : "sampleRequestId1",
+                "orderId"  : "a177c2a8cfe1U0123456789eqntvwWsy",
+                "orderType": "Limit",
+                "symbol"   : "BTC-PERP",
+                "timestamp": 1613878579202
+            },
+            {
+                "id"       : "sampleRequestId2",
+                "orderId"  : "a177c2a8cfe1U0123456789equestId2",
+                "orderType": "Limit",
+                "symbol"   : "BTC-PERP",
+                "timestamp": 1613878579202
+            }
+        ]
+    }
+}
+```
+
+
+Place multiple orders in a batch. If some order in the batch failed our basic check, then the whole batch request fail.
+
+You may submit up to 10 orders at a time. Server will respond with error if you submit more than 10 orders.
+
+**HTTP Request**
+
+`POST /<grp>/api/pro/v2/futures/order/batch`
+
+**Prehash String**
+
+`<timestamp>+v2/futures/order/batch`
+
+**Request Parameters**
+
+List of objects.
+
