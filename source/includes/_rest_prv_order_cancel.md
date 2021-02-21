@@ -41,7 +41,7 @@
 
 **HTTP Request**
 
-`POST /<grp>/api/pro/v2/futures/order`
+`DELETE /<grp>/api/pro/v2/futures/order`
 
 **Prehash String**
 

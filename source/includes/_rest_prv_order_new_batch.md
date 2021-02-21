@@ -3,26 +3,28 @@
 > Place Batch Orders - Request Body
 
 ```json
-[
-    {
-        "id"        : "sampleRequestId1",
-        "time"      : 1613878579169,
-        "symbol"    : "BTC-PERP",
-        "orderPrice": "34000",
-        "orderQty"  : "0.1",
-        "orderType" : "limit",
-        "side"      : "buy"
-    },
-    {
-        "id"        : "sampleRequestId2",
-        "time"      : 1613878579169,
-        "symbol"    : "BTC-PERP",
-        "orderPrice": "35000",
-        "orderQty"  : "0.2",
-        "orderType" : "limit",
-        "side"      : "buy"
-    }
-]
+{
+    "orders": [
+                {
+                    "id"        : "sampleRequestId1",
+                    "time"      : 1613878579169,
+                    "symbol"    : "BTC-PERP",
+                    "orderPrice": "34000",
+                    "orderQty"  : "0.1",
+                    "orderType" : "limit",
+                    "side"      : "buy"
+                },
+                {
+                    "id"        : "sampleRequestId2",
+                    "time"      : 1613878579169,
+                    "symbol"    : "BTC-PERP",
+                    "orderPrice": "35000",
+                    "orderQty"  : "0.2",
+                    "orderType" : "limit",
+                    "side"      : "buy"
+                }
+              ]
+}
 ```
 
 > Place Batch Orders - Successful ACK Response (Status 200, code 0)
@@ -56,7 +58,7 @@
 ```
 
 
-Place multiple orders in a batch. If some order in the batch failed our basic check, then the whole batch request fail.
+Place multiple orders in a batch. If any order(s) fails our basic check, the whole batch request will fail.
 
 You may submit up to 10 orders at a time. Server will respond with error if you submit more than 10 orders.
 
@@ -66,9 +68,11 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
 
 **Prehash String**
 
-`<timestamp>+v2/futures/order/batch`
+`v2/futures/order/batch`
 
 **Request Parameters**
 
-List of objects.
-
+ Name          | Data Type           | Description                
+-------------- | ------------------- | -------------------------- 
+ orders        | List                | List of order items                    
+please refer to [placing new order](#new-order) for order item definition
