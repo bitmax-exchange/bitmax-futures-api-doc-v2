@@ -1303,7 +1303,7 @@
 </span></code></pre></div>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>POST /&lt;grp&gt;/api/pro/v2/futures/order</code></p>
+<p><code>DELETE /&lt;grp&gt;/api/pro/v2/futures/order</code></p>
 
 <p><strong>Prehash String</strong></p>
 
@@ -1358,26 +1358,28 @@
 <blockquote>
 <p>Place Batch Orders - Request Body</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"time"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">1613878579169</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"symbol"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34000"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"side"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"time"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">1613878579169</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"symbol"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35000"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"side"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"time"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">1613878579169</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"symbol"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"side"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"time"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">1613878579169</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"symbol"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderQty"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"side"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
 <p>Place Batch Orders - Successful ACK Response (Status 200, code 0)</p>
@@ -1408,7 +1410,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Place multiple orders in a batch. If some order in the batch failed our basic check, then the whole batch request fail.</p>
+<p>Place multiple orders in a batch. If any order(s) fails our basic check, the whole batch request will fail.</p>
 
 <p>You may submit up to 10 orders at a time. Server will respond with error if you submit more than 10 orders.</p>
 
@@ -1418,12 +1420,105 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>&lt;timestamp&gt;+v2/futures/order/batch</code></p>
+<p><code>v2/futures/order/batch</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
-<p>List of objects.</p>
-<h3 id='cancel-batch-orders'>Cancel Batch Orders</h3><h3 id='cancel-all-open-orders'>Cancel All Open Orders</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>List</td>
+<td>List of order items</td>
+</tr>
+</tbody></table>
+
+<p>please refer to <a href="#new-order">placing new order</a> for order item definition</p>
+<h3 id='cancel-batch-orders'>Cancel Batch Orders</h3>
+<blockquote>
+<p>Cancel Batch Orders - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"orders"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"sampleRequestId1"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c2a8cfe1U0123456789eqntvwWsy"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"time"</span><span class="p">:</span><span class="mi">1613900544076</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"sampleRequestId2"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c2a8cfe1U0123456789equestId2"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"time"</span><span class="p">:</span><span class="mi">1613900544076</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Cancel Batch Orders - Successful ACK Response (Status 200, code 0)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"meta"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"batch-cancel-order"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"respInst"</span><span class="p">:</span><span class="s2">"ACK"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"orders"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"sampleRequestId1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c2a8cfe1U0123456789eqntvwWsy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"orderType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1613900544091</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"sampleRequestId2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c2a8cfe1U0123456789equestId2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"orderType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1613900544168</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Cancel multiple orders in a batch. If any order(s) fails our basic check, the whole batch request will fail.</p>
+
+<p>You may submit up to 10 orders to cancel at a time. Server will respond with error if you submit more than 10 orders.</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<p><code>DELETE /&lt;grp&gt;/api/pro/v2/futures/order/batch</code></p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>v2/futures/order/batch</code></p>
+
+<p><strong>Request Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>List</td>
+<td>List of order items to cancel</td>
+</tr>
+</tbody></table>
+
+<p>please refer to <a href="#cancel-order">cancel order</a> for order item definition</p>
+<h3 id='cancel-all-open-orders'>Cancel All Open Orders</h3>
 <blockquote>
 <p>Response</p>
 </blockquote>
@@ -1499,45 +1594,14 @@
 <p><code>v2/futures/order/open</code></p>
 <h3 id='query-order-by-id'>Query Order By ID</h3>
 <blockquote>
-<p>Query Order with a single order id - Successful Response (Status 200, code 0)</p>
+<p>Query Orders By IDs - Request Body</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ac"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ac"</span><span class="w">                  </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"accountId"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"avgFilledPx"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cumFee"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cumFilledQty"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"errorCode"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"execInst"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"fee"</span><span class="w">                 </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"feeAsset"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"lastExecTime"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877923408</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"lastPx"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"lastQty"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderId"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderQty"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"orderType"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"posStopLossPrice"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"posStopLossTrigger"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"posTakeProfitPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"posTakeProfitTrigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"price"</span><span class="w">               </span><span class="p">:</span><span class="w"> </span><span class="s2">"34000"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"seqNum"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="mi">18586710</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"side"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"stopBy"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"stopPrice"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"symbol"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"time"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877922641</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+   </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA,a177c29e4064U0123456789dVeUxlVyB"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Query Order with multiple order ids (or a single order id with an extra comma) - Successful Response (Status 200, code 0)</p>
+<p>Query Order with multiple order ids - Successful Response (Status 200, code 0)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"code"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1572,6 +1636,12 @@
             </span><span class="nl">"stopPrice"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"symbol"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"time"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877922641</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ac"</span><span class="w">                  </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"accountId"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"orderId"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"a177c29e4064U0123456789dVeUxlVyB"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1582,7 +1652,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>&lt;timestamp&gt;+v2/futures/order/status</code></p>
+<p><code>v2/futures/order/status</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1598,11 +1668,11 @@
 <td>orderId</td>
 <td>String</td>
 <td>Yes</td>
-<td>a single order id, or multiple order ids separated by ,</td>
+<td>a single order id, or multiple order ids separated by <em>,</em></td>
 </tr>
 </tbody></table>
 
-<p>The API will respond with a list of objects in the data field. Each object in the list contains information of a single order. There&#39;s one exception, if you use only a single orderId, the data field of the API response will be simplified to a single object. If you want the API to respond with a list of only one object in this case, add a comma (<code>,</code>) to the orderId.</p>
+<p>The API will respond with a list of objects in the data field. Each object in the list contains information of a single order.</p>
 <h1 id='websocket'>WebSocket</h1><h2 id='how-to-connect'>How to Connect</h2>
 <p>Base endpoints:</p>
 
