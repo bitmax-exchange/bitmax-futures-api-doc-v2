@@ -23,7 +23,7 @@ You can change the margin type of a position:
 
 **Prehash String**
 
-`v2/futures/margin-type`
+`<timestamp>+v2/futures/margin-type`
 
 
 **Request Parameters**

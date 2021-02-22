@@ -18,7 +18,7 @@ See [Free Margin](#free-margin) on the maximum amount you can increase / decreas
 
 **Prehash String**
 
-`v2/futures/isolated-position-margin`
+`<timestamp>+v2/futures/isolated-position-margin`
 
 
 **Request Parameters**

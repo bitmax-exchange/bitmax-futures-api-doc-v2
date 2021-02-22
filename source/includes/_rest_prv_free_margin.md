@@ -41,5 +41,5 @@ See [Change Margin](#change-margin-for-isolated-positions) on how to increase or
 
 **Prehash String**
 
-`v2/futures/free-margin`
+`<timestamp>+v2/futures/free-margin`
 

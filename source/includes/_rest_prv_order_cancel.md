@@ -45,7 +45,7 @@
 
 **Prehash String**
 
-`v2/futures/order`
+`<timestamp>+v2/futures/order`
 
 **Request Parameters**
 

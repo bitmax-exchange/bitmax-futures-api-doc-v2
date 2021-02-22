@@ -62,7 +62,7 @@ You may submit up to 10 orders to cancel at a time. Server will respond with err
 
 **Prehash String**
 
-`v2/futures/order/batch`
+`<timestamp>+v2/futures/order/batch`
 
 **Request Parameters**
 
