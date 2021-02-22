@@ -32,6 +32,7 @@ includes:
   - rest_prv_order_cancel_batch
   - rest_prv_order_cancel_all
   - rest_prv_order_open
+  - rest_prv_order_hist_curr
   - rest_prv_order_query_by_id
   - wss
   - wss_general
