@@ -40,6 +40,6 @@
 
 **Prehash String**
 
-`v2/futures/order/open`
+`<timestamp>+v2/futures/order/open`
 
 

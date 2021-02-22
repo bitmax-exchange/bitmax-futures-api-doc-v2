@@ -17,7 +17,7 @@ You can deposit collateral assets to your Futures account from your Cash account
 
 **Prehash String**
 
-`v2/futures/transfer/deposit`
+`<timestamp>+v2/futures/transfer/deposit`
 
 **Request Parameters**
 
@@ -47,7 +47,7 @@ You can withdraw collateral assets from your Futures account to your Cash accoun
 
 **Prehash String**
 
-`v2/futures/transfer/withdraw`
+`<timestamp>+v2/futures/transfer/withdraw`
 
 **Request Parameters**
 

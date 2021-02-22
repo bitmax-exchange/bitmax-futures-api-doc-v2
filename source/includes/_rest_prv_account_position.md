@@ -62,6 +62,6 @@ Get current position data - a full snapshot of your futures account.
 
 **Prehash String**
 
-`v2/futures/position`
+`<timestamp>+v2/futures/position`
 
 

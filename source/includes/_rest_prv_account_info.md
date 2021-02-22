@@ -38,7 +38,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **prehash string** 
 
-`v2/account/info`
+`<timestamp>+v2/account/info`
 
 Obtain the account information. 
 
