@@ -311,7 +311,13 @@
             <a href="#introducing-futures-pro-v2-apis-testnet-only" class="toc-h1 toc-link" data-title="Introducing Futures Pro (v2) APIs (Testnet Only)">Introducing Futures Pro (v2) APIs (Testnet Only)</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#change-log" class="toc-h2 toc-link" data-title="Change Log">Change Log</a>
+                  </li>
+                  <li>
                     <a href="#testnet" class="toc-h2 toc-link" data-title="Testnet">Testnet</a>
+                  </li>
+                  <li>
+                    <a href="#obtain-api-keys" class="toc-h2 toc-link" data-title="Obtain API Keys">Obtain API Keys</a>
                   </li>
                   <li>
                     <a href="#demo-code" class="toc-h2 toc-link" data-title="Demo Code">Demo Code</a>
@@ -342,6 +348,14 @@
                   </li>
                   <li>
                     <a href="#authenticate-a-restful-request" class="toc-h2 toc-link" data-title="Authenticate a RESTful Request">Authenticate a RESTful Request</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#create-request" class="toc-h3 toc-link" data-title="Create Request">Create Request</a>
+                          </li>
+                          <li>
+                            <a href="#sign-a-request" class="toc-h3 toc-link" data-title="Sign a Request">Sign a Request</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#account-data" class="toc-h2 toc-link" data-title="Account Data">Account Data</a>
@@ -382,10 +396,10 @@
                             <a href="#new-order" class="toc-h3 toc-link" data-title="New Order">New Order</a>
                           </li>
                           <li>
-                            <a href="#cancel-order" class="toc-h3 toc-link" data-title="Cancel Order">Cancel Order</a>
+                            <a href="#place-batch-orders" class="toc-h3 toc-link" data-title="Place Batch Orders">Place Batch Orders</a>
                           </li>
                           <li>
-                            <a href="#place-batch-orders" class="toc-h3 toc-link" data-title="Place Batch Orders">Place Batch Orders</a>
+                            <a href="#cancel-order" class="toc-h3 toc-link" data-title="Cancel Order">Cancel Order</a>
                           </li>
                           <li>
                             <a href="#cancel-batch-orders" class="toc-h3 toc-link" data-title="Cancel Batch Orders">Cancel Batch Orders</a>
@@ -395,6 +409,9 @@
                           </li>
                           <li>
                             <a href="#list-open-orders" class="toc-h3 toc-link" data-title="List Open Orders">List Open Orders</a>
+                          </li>
+                          <li>
+                            <a href="#list-current-history-orders" class="toc-h3 toc-link" data-title="List Current History Orders">List Current History Orders</a>
                           </li>
                           <li>
                             <a href="#query-order-by-id" class="toc-h3 toc-link" data-title="Query Order By ID">Query Order By ID</a>
@@ -519,8 +536,39 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introducing-futures-pro-v2-apis-testnet-only'>Introducing Futures Pro (v2) APIs (Testnet Only)</h1><h2 id='testnet'>Testnet</h2>
-<p>Testnet URL: <a href="https://api-test.bitmax-sandbox.io/">https://api-test.bitmax-sandbox.io/</a></p>
+        <h1 id='introducing-futures-pro-v2-apis-testnet-only'>Introducing Futures Pro (v2) APIs (Testnet Only)</h1><h2 id='change-log'>Change Log</h2>
+<p><strong>2021-02-22</strong></p>
+
+<ul>
+<li>Added RESTful <a href="#list-current-history-orders"><em>Current Order History</em></a> API.</li>
+</ul>
+
+<p><strong>2021-02-21</strong></p>
+
+<ul>
+<li>Added <a href="#generate-order-id"><em>Order Id Generate Algorithm</em></a>.</li>
+<li>Added RESTful <a href="#place-batch-orders"><em>Place Batch Orders</em></a> API.</li>
+<li>Added RESTful <a href="#cancel-batch-orders"><em>Cancel Batch Orders</em></a> API.</li>
+<li>Added RESTful <a href="#query-order-by-id"><em>Query Order By ID</em></a> API.</li>
+</ul>
+
+<p><strong>2021-02-19</strong></p>
+
+<ul>
+<li>Added <a href="#new-order-batch"><em>WebSocket Account Snapshot</em></a> API.</li>
+<li>Added <a href="#ws-place-order"><em>WebSocket Place Order</em></a> API.</li>
+<li>Added <a href="#ws-cancel-order"><em>WebSocket Cancel Order</em></a> API.</li>
+<li>Added <a href="#ws-cancel-all-orders"><em>WebSocket Cancel All Orders</em></a> API.</li>
+</ul>
+
+<p><strong>2021-02-18</strong></p>
+
+<ul>
+<li>Replaced <code>baseAsset</code> and <code>quoteAsset</code> with <code>settlementAsset</code> in <a href="#futures-contracts-info"><em>Futures Contract Info</em></a> response.</li>
+<li>Updated <a href="#account-info"><em>Account Info</em></a> API path.</li>
+</ul>
+<h2 id='testnet'>Testnet</h2>
+<p>Testnet URL: <a href="https://api-test.bitmax-sandbox.io/"><em>https://api-test.bitmax-sandbox.io</em></a></p>
 
 <p>You are free to register one or more accounts in the testnet. You can use the magic code <strong>888888</strong> to bypass all verification code checks 
 (email verification, phone number verification, two-step authentication, etc.).</p>
@@ -528,8 +576,28 @@
 <p>You accounts will automatically receive initial funding. </p>
 
 <p>Please expect the testnet to be reset every a few days. </p>
+<h2 id='obtain-api-keys'>Obtain API Keys</h2>
+<p>Prior to use API, you need to login the website to create API Key with proper permissions. The API key is shared for all instruments in BitMax including cash, margin and futures.</p>
+
+<p>You can create and manage your API Keys <a href="https://bitmax.io/en/account/api-key">here</a>.</p>
+
+<p>Every user can create up to 10 API Keys, each can be applied with either permission below:</p>
+
+<ul>
+<li><strong>View permission</strong>: It is used to query the data, such as order query, trade query.</li>
+<li><strong>Trade permission</strong>: It is used to place order, cancel order and transfer, etc.</li>
+<li><strong>Transfer permission</strong>: It is used to create/cancel asset transfer order, etc.</li>
+</ul>
+
+<p>Please remember below information after creation:</p>
+
+<ul>
+<li><strong>Access Key</strong> is used in API request</li>
+<li><strong>Secret Key</strong> is used to generate the signature (only visible once after creation)</li>
+<li>The API Key can bind maximum 20 IP addresses (either host IP or network IP), we strongly suggest you bind IP address for security purpose. The API Key without IP binding will be expired after 90 days.</li>
+</ul>
 <h2 id='demo-code'>Demo Code</h2>
-<p>Python Demo: <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2">https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2</a></p>
+<p>Python Demo: <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2"><em>https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2</em></a></p>
 <h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
 <p>Response - Futures Contracts Info</p>
@@ -672,7 +740,88 @@
 <p><strong>HTTP Request</strong></p>
 
 <p><code>GET /api/pro/v2/futures/pricing-data</code></p>
-<h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2><h2 id='account-data'>Account Data</h2><h3 id='account-info'>Account Info</h3>
+<h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2><h3 id='create-request'>Create Request</h3>
+<p>To access private data via RESTful APIs, you must include the following headers:</p>
+
+<ul>
+<li><code>x-auth-key</code> - required, the api key as a string. </li>
+<li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
+<li><code>x-auth-signature</code> - required, the request signature (see <a href="#sign-a-request">Sign a Request</a>)</li>
+</ul>
+
+<p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
+be rejected. </p>
+<h3 id='sign-a-request'>Sign a Request</h3>
+<blockquote>
+<p>Signing a RESTful Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># bash </span>
+<span class="nv">APIPATH</span><span class="o">=</span>info
+<span class="nv">APIKEY</span><span class="o">=</span>CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x
+<span class="nv">SECRET</span><span class="o">=</span>hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s%N | <span class="nb">cut</span> <span class="nt">-c</span> <span class="nt">-13</span><span class="sb">`</span> <span class="c"># 1608133910000</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
+<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$MESSAGE</span> | openssl dgst <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$SECRET</span> <span class="nt">-binary</span> | <span class="nb">base64</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$SIGNATURE</span>  <span class="c"># /pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM=</span>
+
+curl <span class="nt">-X</span> GET <span class="nt">-i</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
+  https://bitmax.io/api/pro/v1/info
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># python 3.6+
+</span><span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">base64</span>
+
+<span class="n">api_path</span>  <span class="o">=</span> <span class="s">"info"</span>
+<span class="n">api_key</span>   <span class="o">=</span> <span class="s">"CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x"</span>
+<span class="n">sec_key</span>   <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c1"># 1608133910000
+</span>
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s">f"</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s">+</span><span class="si">{</span><span class="n">api_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">sec_key</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
+
+<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">).</span><span class="n">digest</span><span class="p">())</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"x-auth-key"</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
+  <span class="s">"x-auth-signature"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> 
+  <span class="s">"x-auth-timestamp"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>  <span class="c1"># b'/pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM='
+</span></code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="c1">// java 1.8+</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Base64</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SignatureExample</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span> <span class="c1">// 1562952827927</span>
+      <span class="nc">String</span> <span class="n">api_path</span> <span class="o">=</span> <span class="s">"user/info"</span><span class="o">;</span>
+      <span class="nc">String</span> <span class="n">secret</span> <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span><span class="o">;</span>
+      <span class="nc">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"+"</span> <span class="o">+</span> <span class="n">api_path</span><span class="o">;</span>
+
+      <span class="nc">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="nc">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="nc">SecretKeySpec</span> <span class="n">secret_key</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecretKeySpec</span><span class="o">(</span><span class="n">secret</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key</span><span class="o">);</span>
+
+      <span class="nc">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="nc">Base64</span><span class="o">.</span><span class="na">encodeBase64String</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hash</span><span class="o">);</span> <span class="c1">// vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm. The prehash string is <code>&lt;timestamp&gt;+&lt;api-path&gt;</code>. 
+The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-path</code> is provided in each API description.</p>
+
+<p>See the code demos in (<code>bash</code>/<code>python</code>/<code>java</code>) on the right.</p>
+<h2 id='account-data'>Account Data</h2><h3 id='account-info'>Account Info</h3>
 <blockquote>
 <p>Account Info - Sample response:</p>
 </blockquote>
@@ -710,7 +859,7 @@
 
 <p><strong>prehash string</strong> </p>
 
-<p><code>v2/account/info</code></p>
+<p><code>&lt;timestamp&gt;+v2/account/info</code></p>
 
 <p>Obtain the account information. </p>
 
@@ -838,7 +987,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/position</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/position</code></p>
 <h3 id='free-margin'>Free Margin</h3>
 <blockquote>
 <p>Response</p>
@@ -880,7 +1029,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/free-margin</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/free-margin</code></p>
 <h3 id='change-margin-for-isolated-positions'>Change Margin (for Isolated Positions)</h3>
 <blockquote>
 <p>Successful Response</p>
@@ -899,7 +1048,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/isolated-position-margin</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/isolated-position-margin</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -949,7 +1098,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/margin-type</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/margin-type</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1029,7 +1178,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/transfer/deposit</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/transfer/deposit</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1070,7 +1219,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/transfer/withdraw</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/transfer/withdraw</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1165,7 +1314,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1262,98 +1411,6 @@
 <td>position take profit price</td>
 </tr>
 </tbody></table>
-<h3 id='cancel-order'>Cancel Order</h3>
-<blockquote>
-<p>Response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"action"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">action</span><span class="w">
-            </span><span class="nl">"id"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234abcd1234"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">provided</span><span class="w"> </span><span class="err">ID</span><span class="w">
-            </span><span class="nl">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">instruction</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"ac"</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">                    </span><span class="err">//</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">category</span><span class="w">
-            </span><span class="nl">"accountId"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-futures-account-id"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">ID</span><span class="w">
-            </span><span class="nl">"seqNum"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">                           </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
-            </span><span class="nl">"time"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="mi">1605677683714</span><span class="p">,</span><span class="w">                </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">creation</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
-            </span><span class="nl">"orderId"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-order-id"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">ID</span><span class="w">
-            </span><span class="nl">"orderType"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w">
-            </span><span class="nl">"side"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">side</span><span class="w">
-            </span><span class="nl">"symbol"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">symbol</span><span class="w">
-            </span><span class="nl">"price"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"9500"</span><span class="p">,</span><span class="w">                       </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> 
-            </span><span class="nl">"orderQty"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">qty</span><span class="w">
-            </span><span class="nl">"stopPrice"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">price</span><span class="w">
-            </span><span class="nl">"stopBy"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w">                     </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">trigger</span><span class="w"> 
-            </span><span class="nl">"status"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w">
-            </span><span class="nl">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1605677684479</span><span class="p">,</span><span class="w">                </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
-            </span><span class="nl">"lastPx"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w">
-            </span><span class="nl">"lastQty"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
-            </span><span class="nl">"avgFilledPx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">fills</span><span class="w"> 
-            </span><span class="nl">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">cummulative</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
-            </span><span class="nl">"fee"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">fill</span><span class="w">
-            </span><span class="nl">"cumFee"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">cummulative</span><span class="w"> </span><span class="err">fee</span><span class="w">
-            </span><span class="nl">"feeAsset"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">                       </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
-            </span><span class="nl">"errorCode"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">                            </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>HTTP Request</strong></p>
-
-<p><code>DELETE /&lt;grp&gt;/api/pro/v2/futures/order</code></p>
-
-<p><strong>Prehash String</strong></p>
-
-<p><code>v2/futures/order</code></p>
-
-<p><strong>Request Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>PARAMETER</th>
-<th>TYPE</th>
-<th>REQUIRED</th>
-<th>DESCRIPTION</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>String</td>
-<td></td>
-<td>&gt;=9 chars (letter and digit number only). Optional but recommended. We echo it back to help you match response with request. This is especially useful when you cancel in batch mode.</td>
-</tr>
-<tr>
-<td>orderId</td>
-<td>String</td>
-<td>Yes</td>
-<td>32 chars order id. You should set the value to be the orderId of the target order you want to cancel.</td>
-</tr>
-<tr>
-<td>symbol</td>
-<td>String</td>
-<td>Yes</td>
-<td>Symbol of the order to cancel</td>
-</tr>
-<tr>
-<td>time</td>
-<td>Long</td>
-<td>Yes</td>
-<td>milliseconds since UNIX epoch in UTC. We do not process request sent more than 30 seconds ago.</td>
-</tr>
-<tr>
-<td><a href="#response-type-respinst">respInst</a></td>
-<td>ENUM</td>
-<td></td>
-<td><code>ACK</code> by default</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response</strong></p>
-
-<p><em>respInst</em></p>
 <h3 id='place-batch-orders'>Place Batch Orders</h3>
 <blockquote>
 <p>Place Batch Orders - Request Body</p>
@@ -1420,7 +1477,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order/batch</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order/batch</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1439,6 +1496,98 @@
 </tbody></table>
 
 <p>please refer to <a href="#new-order">placing new order</a> for order item definition</p>
+<h3 id='cancel-order'>Cancel Order</h3>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"action"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">action</span><span class="w">
+            </span><span class="nl">"id"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234abcd1234"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">provided</span><span class="w"> </span><span class="err">ID</span><span class="w">
+            </span><span class="nl">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">instruction</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ac"</span><span class="w">          </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">                    </span><span class="err">//</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">category</span><span class="w">
+            </span><span class="nl">"accountId"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-futures-account-id"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">account</span><span class="w"> </span><span class="err">ID</span><span class="w">
+            </span><span class="nl">"seqNum"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">                           </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
+            </span><span class="nl">"time"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="mi">1605677683714</span><span class="p">,</span><span class="w">                </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">creation</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
+            </span><span class="nl">"orderId"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-order-id"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">ID</span><span class="w">
+            </span><span class="nl">"orderType"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w">
+            </span><span class="nl">"side"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">side</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">symbol</span><span class="w">
+            </span><span class="nl">"price"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"9500"</span><span class="p">,</span><span class="w">                       </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> 
+            </span><span class="nl">"orderQty"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">qty</span><span class="w">
+            </span><span class="nl">"stopPrice"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="nl">"stopBy"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w">                     </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">trigger</span><span class="w"> 
+            </span><span class="nl">"status"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w">
+            </span><span class="nl">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1605677684479</span><span class="p">,</span><span class="w">                </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
+            </span><span class="nl">"lastPx"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="nl">"lastQty"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+            </span><span class="nl">"avgFilledPx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">fills</span><span class="w"> 
+            </span><span class="nl">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">cummulative</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+            </span><span class="nl">"fee"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">fill</span><span class="w">
+            </span><span class="nl">"cumFee"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">cummulative</span><span class="w"> </span><span class="err">fee</span><span class="w">
+            </span><span class="nl">"feeAsset"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">                       </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
+            </span><span class="nl">"errorCode"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">                            </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>DELETE /&lt;grp&gt;/api/pro/v2/futures/order</code></p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+v2/futures/order</code></p>
+
+<p><strong>Request Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>PARAMETER</th>
+<th>TYPE</th>
+<th>REQUIRED</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td></td>
+<td>&gt;=9 chars (letter and digit number only). Optional but recommended. We echo it back to help you match response with request. This is especially useful when you cancel in batch mode.</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>Yes</td>
+<td>32 chars order id. You should set the value to be the orderId of the target order you want to cancel.</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>String</td>
+<td>Yes</td>
+<td>Symbol of the order to cancel</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Long</td>
+<td>Yes</td>
+<td>milliseconds since UNIX epoch in UTC. We do not process request sent more than 30 seconds ago.</td>
+</tr>
+<tr>
+<td><a href="#response-type-respinst">respInst</a></td>
+<td>ENUM</td>
+<td></td>
+<td><code>ACK</code> by default</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p><em>respInst</em></p>
 <h3 id='cancel-batch-orders'>Cancel Batch Orders</h3>
 <blockquote>
 <p>Cancel Batch Orders - Request Body</p>
@@ -1499,7 +1648,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order/batch</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order/batch</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1532,7 +1681,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order/all</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order/all</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1591,17 +1740,154 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order/open</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order/open</code></p>
+<h3 id='list-current-history-orders'>List Current History Orders</h3>
+<blockquote>
+<p>Current History Orders - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"n"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"executedOnly"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Successful Response (Status 200, code 0)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"ac"</span><span class="p">:</span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"avgFilledPx"</span><span class="p">:</span><span class="s2">"58501"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"cumFee"</span><span class="p">:</span><span class="s2">"0.058501"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"cumFilledQty"</span><span class="p">:</span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"execInst"</span><span class="p">:</span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"fee"</span><span class="p">:</span><span class="s2">"0.058501"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"feeAsset"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastExecTime"</span><span class="p">:</span><span class="mi">1613992168196</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastPx"</span><span class="p">:</span><span class="s2">"58501"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastQty"</span><span class="p">:</span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderQty"</span><span class="p">:</span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderType"</span><span class="p">:</span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posStopLossPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posStopLossTrigger"</span><span class="p">:</span><span class="s2">"market"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posTakeProfitPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posTakeProfitTrigger"</span><span class="p">:</span><span class="s2">"market"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"price"</span><span class="p">:</span><span class="s2">"59027"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"seqNum"</span><span class="p">:</span><span class="mi">1041950</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"side"</span><span class="p">:</span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"stopBy"</span><span class="p">:</span><span class="s2">"market"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"stopPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"time"</span><span class="p">:</span><span class="mi">1613992168190</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This API returns all current history orders for futures account.</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<p><code>GET &lt;account-group&gt;/api/pro/v2/futures/order/hist/current</code></p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+v2/futures/order/hist/current</code></p>
+
+<p><strong>Request Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>symbol filter, e.g. <code>&quot;BTC-PERP&quot;</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td><code>Int</code></td>
+<td>No</td>
+<td>maximum number of orders to be included in the response</td>
+</tr>
+<tr>
+<td><code>executedOnly</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>if <code>True</code>, include orders with non-zero filled quantities only.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
 <h3 id='query-order-by-id'>Query Order By ID</h3>
 <blockquote>
-<p>Query Orders By IDs - Request Body</p>
+<p>Query order with single order id - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Successful Response (Status 200, code 0)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ac"</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ac"</span><span class="w">                  </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accountId"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avgFilledPx"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cumFee"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cumFilledQty"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"errorCode"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"execInst"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fee"</span><span class="w">                 </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"feeAsset"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastExecTime"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877923408</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPx"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastQty"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"orderId"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"orderQty"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"orderType"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"posStopLossPrice"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"posStopLossTrigger"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"posTakeProfitPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"posTakeProfitTrigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price"</span><span class="w">               </span><span class="p">:</span><span class="w"> </span><span class="s2">"34000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"seqNum"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="mi">18586710</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"side"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stopBy"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"stopPrice"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"time"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877922641</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Query Order with multiple order ids - Request Body</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA,a177c29e4064U0123456789dVeUxlVyB"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Query Order with multiple order ids - Successful Response (Status 200, code 0)</p>
+<p>Successful Response (Status 200, code 0)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"code"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1611,31 +1897,8 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"ac"</span><span class="w">                  </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"accountId"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleFuturesAccountId"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"avgFilledPx"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cumFee"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cumFilledQty"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"errorCode"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"execInst"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fee"</span><span class="w">                 </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"feeAsset"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lastExecTime"</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877923408</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lastPx"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"lastQty"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"orderId"</span><span class="w">             </span><span class="p">:</span><span class="w"> </span><span class="s2">"a177c29e4064U0123456789dVeUxlVyA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"orderQty"</span><span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"orderType"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"posStopLossPrice"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"posStopLossTrigger"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"posTakeProfitPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"posTakeProfitTrigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"price"</span><span class="w">               </span><span class="p">:</span><span class="w"> </span><span class="s2">"34000"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"seqNum"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="mi">18586710</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"side"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"status"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"stopBy"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"stopPrice"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"symbol"</span><span class="w">              </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="w">                </span><span class="p">:</span><span class="w"> </span><span class="mi">1613877922641</span><span class="w">
+            </span><span class="err">...</span><span class="w">
         </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
             </span><span class="nl">"ac"</span><span class="w">                  </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
@@ -1652,7 +1915,7 @@
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>v2/futures/order/status</code></p>
+<p><code>&lt;timestamp&gt;+v2/futures/order/status</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1672,7 +1935,7 @@
 </tr>
 </tbody></table>
 
-<p>The API will respond with a list of objects in the data field. Each object in the list contains information of a single order.</p>
+<p>The API will respond with a list of objects in the data field. Each object in the list contains information of a single order. There&#39;s one exception, if you use only a single orderId, the data field of the API response will be simplified to a single object. If you want the API to respond with a list of only one object in this case, add a comma (<code>,</code>) to the orderId.</p>
 <h1 id='websocket'>WebSocket</h1><h2 id='how-to-connect'>How to Connect</h2>
 <p>Base endpoints:</p>
 
