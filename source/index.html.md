@@ -27,8 +27,8 @@ includes:
   - rest_prv_order
   - rest_prv_order_generate_id
   - rest_prv_order_new
-  - rest_prv_order_cancel
   - rest_prv_order_new_batch
+  - rest_prv_order_cancel
   - rest_prv_order_cancel_batch
   - rest_prv_order_cancel_all
   - rest_prv_order_open
@@ -60,9 +60,34 @@ code_clipboard: true
 
 # Introducing Futures Pro (v2) APIs (Testnet Only)
 
+## Change Log
+
+**2021-02-22**
+
+* Added RESTful [*Current Order History*](#list-current-history-orders) API.
+
+**2021-02-21**
+
+* Added [*Order Id Generate Algorithm*](#generate-order-id).
+* Added RESTful [*Place Batch Orders*](#place-batch-orders) API.
+* Added RESTful [*Cancel Batch Orders*](#cancel-batch-orders) API.
+* Added RESTful [*Query Order By ID*](#query-order-by-id) API.
+
+**2021-02-19**
+
+* Added [*WebSocket Account Snapshot*](#new-order-batch) API.
+* Added [*WebSocket Place Order*](#ws-place-order) API.
+* Added [*WebSocket Cancel Order*](#ws-cancel-order) API.
+* Added [*WebSocket Cancel All Orders*](#ws-cancel-all-orders) API.
+
+**2021-02-18**
+
+* Replaced `baseAsset` and `quoteAsset` with `settlementAsset` in [*Futures Contract Info*](#futures-contracts-info) response.
+* Updated [*Account Info*](#account-info) API path.
+
 ## Testnet 
 
-Testnet URL: [https://api-test.bitmax-sandbox.io/](https://api-test.bitmax-sandbox.io/)
+Testnet URL: [*https://api-test.bitmax-sandbox.io*](https://api-test.bitmax-sandbox.io/)
 
 You are free to register one or more accounts in the testnet. You can use the magic code **888888** to bypass all verification code checks 
 (email verification, phone number verification, two-step authentication, etc.).
@@ -74,5 +99,5 @@ Please expect the testnet to be reset every a few days.
 
 ## Demo Code
 
-Python Demo: [https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2](https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2)
+Python Demo: [*https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2*](https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2)
 
