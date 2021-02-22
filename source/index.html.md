@@ -96,6 +96,23 @@ You accounts will automatically receive initial funding.
 
 Please expect the testnet to be reset every a few days. 
 
+## Obtain API Keys
+
+Prior to use API, you need to login the website to create API Key with proper permissions. The API key is shared for all instruments in BitMax including cash, margin and futures.
+
+You can create and manage your API Keys [here](https://bitmax.io/en/account/api-key).
+
+Every user can create up to 10 API Keys, each can be applied with either permission below:
+
+- **View permission**: It is used to query the data, such as order query, trade query.
+- **Trade permission**: It is used to place order, cancel order and transfer, etc.
+- **Transfer permission**: It is used to create/cancel asset transfer order, etc.
+
+Please remember below information after creation:
+
+- **Access Key** is used in API request
+- **Secret Key** is used to generate the signature (only visible once after creation)
+- The API Key can bind maximum 20 IP addresses (either host IP or network IP), we strongly suggest you bind IP address for security purpose. The API Key without IP binding will be expired after 90 days.
 
 ## Demo Code
 
