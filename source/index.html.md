@@ -76,7 +76,7 @@ code_clipboard: true
 
 **2021-02-19**
 
-* Added [*WebSocket Account Snapshot*](#new-order-batch) API.
+* Added [*WebSocket Account Snapshot*](#ws-account-snapshot) API.
 * Added [*WebSocket Place Order*](#ws-place-order) API.
 * Added [*WebSocket Cancel Order*](#ws-cancel-order) API.
 * Added [*WebSocket Cancel All Orders*](#ws-cancel-all-orders) API.
