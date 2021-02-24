@@ -36,6 +36,8 @@ includes:
   - rest_prv_order_query_by_id
   - wss
   - wss_general
+  - wss_auth
+  - wss_keep_alive
   - wss_pub
   - wss_pub_futures_pricing_data
   - wss_sub_level1
@@ -43,7 +45,6 @@ includes:
   - wss_sub_trades
   - wss_sub_bar
   - wss_prv
-  - wss_prv_auth
   - wss_prv_order
   - wss_prv_account_update
   - wss_prv_req
@@ -62,6 +63,10 @@ code_clipboard: true
 # Introducing Futures Pro (v2) APIs (Testnet Only)
 
 ## Change Log
+
+**2021-02-23**
+
+* Removed collapseDecimals field from [*Futures Contracts Info*](#futures-contracts-info) response.
 
 **2021-02-22**
 

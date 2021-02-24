@@ -13,7 +13,6 @@
             "settlementAsset" : "USDT",       // settlement asset
             "underlying"      : "BTC/USDT",
             "tradingStartTime": 1579701600000,
-            "collapseDecimals": "1,0.1,0.01",
             "priceFilter": {
                 "minPrice"  : "0.25",     // the order price cannot be smaller than the minPrice
                 "maxPrice"  : "1000000",  // the order price cannot be greater than the maxPrice
