@@ -427,6 +427,25 @@
                     <a href="#how-to-connect" class="toc-h2 toc-link" data-title="How to Connect">How to Connect</a>
                   </li>
                   <li>
+                    <a href="#websocket-authentication" class="toc-h2 toc-link" data-title="WebSocket Authentication">WebSocket Authentication</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#authentication-response" class="toc-h3 toc-link" data-title="Authentication Response">Authentication Response</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#keep-the-connection-alive" class="toc-h2 toc-link" data-title="Keep the Connection Alive">Keep the Connection Alive</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#method-1-responding-to-server-39-s-ping-messages" class="toc-h3 toc-link" data-title="Method 1: Responding to Server's ping messages">Method 1: Responding to Server's ping messages</a>
+                          </li>
+                          <li>
+                            <a href="#method-2-sending-ping-messages-to-server" class="toc-h3 toc-link" data-title="Method 2: Sending ping messages to Server">Method 2: Sending ping messages to Server</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#public-stream-data" class="toc-h2 toc-link" data-title="Public Stream Data">Public Stream Data</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -449,21 +468,6 @@
                   <li>
                     <a href="#private-stream-data" class="toc-h2 toc-link" data-title="Private Stream Data">Private Stream Data</a>
                       <ul class="toc-list-h3">
-                          <li>
-                            <a href="#authenticate-a-websocket-session" class="toc-h3 toc-link" data-title="Authenticate a WebSocket Session">Authenticate a WebSocket Session</a>
-                          </li>
-                          <li>
-                            <a href="#prehash-string" class="toc-h3 toc-link" data-title="Prehash String">Prehash String</a>
-                          </li>
-                          <li>
-                            <a href="#method-1-websocket-authentication-with-request-headers" class="toc-h3 toc-link" data-title="Method 1 - WebSocket Authentication with Request Headers">Method 1 - WebSocket Authentication with Request Headers</a>
-                          </li>
-                          <li>
-                            <a href="#method-2-websocket-authentication-by-sending-the-auth-message" class="toc-h3 toc-link" data-title="Method 2 - WebSocket Authentication by Sending the Auth Message">Method 2 - WebSocket Authentication by Sending the Auth Message</a>
-                          </li>
-                          <li>
-                            <a href="#authentication-response" class="toc-h3 toc-link" data-title="Authentication Response">Authentication Response</a>
-                          </li>
                           <li>
                             <a href="#channel-order" class="toc-h3 toc-link" data-title="Channel: Order">Channel: Order</a>
                           </li>
@@ -537,6 +541,12 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introducing-futures-pro-v2-apis-testnet-only'>Introducing Futures Pro (v2) APIs (Testnet Only)</h1><h2 id='change-log'>Change Log</h2>
+<p><strong>2021-02-23</strong></p>
+
+<ul>
+<li>Removed collapseDecimals field from <a href="#futures-contracts-info"><em>Futures Contracts Info</em></a> response.</li>
+</ul>
+
 <p><strong>2021-02-22</strong></p>
 
 <ul>
@@ -612,7 +622,6 @@
             </span><span class="nl">"settlementAsset"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">settlement</span><span class="w"> </span><span class="err">asset</span><span class="w">
             </span><span class="nl">"underlying"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"tradingStartTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1579701600000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"collapseDecimals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,0.1,0.01"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"priceFilter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"minPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">smaller</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minPrice</span><span class="w">
                 </span><span class="nl">"maxPrice"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">cannot</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">greater</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maxPrice</span><span class="w">
@@ -1950,6 +1959,249 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
 </ul>
 
 <p>You can only authenticate a WebSocket session via a private endpoint.</p>
+<h2 id='websocket-authentication'>WebSocket Authentication</h2>
+<p>You must authenticate the websocket session in order to recieve private data and send account specific requests 
+(e.g. placing new orders). </p>
+
+<p>You have two options to authenticate a websocket session. </p>
+
+<ul>
+<li>by adding authentication data in the request header when connecting to websocket. </li>
+<li>by sending an <code>op:auth</code> message to the server after you have connected to websocket. </li>
+</ul>
+
+<p>Once you successfully connect to the websocket, you will receive a <code>connected</code> message: </p>
+
+<ul>
+<li>for authenticated websocket session: <code>{&quot;m&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;auth&quot;}</code></li>
+<li>for unauthenticated websocket session: <code>{&quot;m&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;unauth&quot;}</code></li>
+</ul>
+
+<p>If the session is disconnected for some reason, you will receive a <code>disconnected</code> message:</p>
+
+<ul>
+<li><code>{&quot;m&quot;:&quot;disconnected&quot;,&quot;code&quot;:100005,&quot;reason&quot;:&quot;INVALID_WS_REQUEST_DATA&quot;,&quot;info&quot;:&quot;Session is disconnected due to missing pong message from the client&quot;}</code></li>
+</ul>
+
+<p><strong>Method 1 - WebSocket Authentication with Request Headers</strong></p>
+
+<blockquote>
+<p>Authenticate with Headers</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell"><code><span class="c"># # Install wscat from Node.js if you haven't</span>
+<span class="c"># npm install -g wscat  </span>
+
+<span class="nv">APIPATH</span><span class="o">=</span>stream
+<span class="nv">APIKEY</span><span class="o">=</span>BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
+<span class="nv">SECRET</span><span class="o">=</span>fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s%N | <span class="nb">cut</span> <span class="nt">-c</span> <span class="nt">-13</span><span class="sb">`</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
+<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$MESSAGE</span> | openssl dgst <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$SECRET</span> <span class="nt">-binary</span> | <span class="nb">base64</span><span class="sb">`</span>
+
+wscat <span class="nt">-H</span> <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-c</span> wss://api-test.bitmax-sandbox.io:443/api/pro/v2/stream <span class="nt">-w</span> 1 <span class="nt">-x</span> <span class="s1">'{"op":"sub", "id": "abc123", "ch": "order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo:BTMX/USDT"}'</span>
+</code></pre></div>
+<p>This is similar to the way you authenticate any RESTful request. You need to add the following header fields to the 
+connection request:</p>
+
+<ul>
+<li><code>x-auth-key</code></li>
+<li><code>x-auth-timestamp</code></li>
+<li><code>x-auth-signature</code></li>
+</ul>
+
+<p>The server will then check if the data is correctly signed before upgrading the connection protocol to WebSocket. </p>
+
+<p>Note that if you specify these header fields, the server will reject the websocket connection request if authentication fails. </p>
+
+<p><strong>Method 2 - WebSocket Authentication by Sending the Auth Message</strong></p>
+
+<blockquote>
+<p>Authenticate by Sending the <code>auth</code> Message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell"><code><span class="c"># # Install wscat from Node.js if you haven't</span>
+<span class="c"># npm install -g wscat  </span>
+
+<span class="nv">APIPATH</span><span class="o">=</span>stream
+<span class="nv">APIKEY</span><span class="o">=</span>BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
+<span class="nv">SECRET</span><span class="o">=</span>fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s%N | <span class="nb">cut</span> <span class="nt">-c</span> <span class="nt">-13</span><span class="sb">`</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
+<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$MESSAGE</span> | openssl dgst <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$SECRET</span> <span class="nt">-binary</span> | <span class="nb">base64</span><span class="sb">`</span>
+
+wscat <span class="nt">-c</span> wss://api-test.bitmax-sandbox.io:443/1/api/pro/v2/stream <span class="nt">-w</span> 1 <span class="nt">-x</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">op</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">auth</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">abc123</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">t</span><span class="se">\"</span><span class="s2">: </span><span class="nv">$TIMESTAMP</span><span class="s2">, "</span>key<span class="s2">": </span><span class="se">\"</span><span class="nv">$APIKEY</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">sig</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="nv">$SIGNATURE</span><span class="se">\"</span><span class="s2">}"</span>
+</code></pre></div>
+<p>You can also authenticate a live websocket session by sending an <code>op:auth</code> message to the server. </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>op</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td><code>&quot;auth&quot;</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>optional id field, you may safely skip it</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td><code>Long</code></td>
+<td>Yes</td>
+<td>UTC timestamp in milliseconds, use this timestamp to generate signature</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>your api key</td>
+</tr>
+<tr>
+<td><code>sig</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>the signature is generated by signing <code>&quot;&lt;timestamp&gt;+stream&quot;</code></td>
+</tr>
+</tbody></table>
+
+<p>More comprehensive examples can be found at:</p>
+
+<ul>
+<li>Python demo for <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2/blob/main/scripts/minimum_websocket_client_sandbox.py">websocket auth</a></li>
+</ul>
+<h3 id='authentication-response'>Authentication Response</h3>
+<blockquote>
+<p>Auth success message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Auth error message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200006</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unable to find User Account Data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>You will receive a message for authentication result after you send authentication request.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td><code>String</code></td>
+<td><code>&quot;auth&quot;</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo back the id if you provide one in the request</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>Any code other than 0 indicate an error in authentication</td>
+</tr>
+<tr>
+<td><code>err</code></td>
+<td><code>Optional[String]</code></td>
+<td>Provide detailed error message if code is not 0</td>
+</tr>
+</tbody></table>
+<h2 id='keep-the-connection-alive'>Keep the Connection Alive</h2>
+<p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
+<h4 id='method-1-responding-to-server-39-s-ping-messages'>Method 1: Responding to Server&#39;s ping messages</h4>
+<blockquote>
+<p>Method 1. keep the connection alive by responding to Server pushed ping message </p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>&lt;&lt;&lt; { "m": "ping", "hp": 3 }  # Server pushed ping message
+&gt;&gt;&gt; { "op": "pong" }   # Client responds with pong
+</code></pre></div>
+<p>If the server doesn&#39;t receive any client message after a while, it will send a <code>ping</code> message to the client. Once the <code>ping</code> message is received,
+the client should promptly send a <code>pong</code> message to the server. If you missed two consecutive <code>ping</code> messages, the session will be disconnected. </p>
+
+<p><strong>Server Ping Message Schema</strong> </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>op</code></td>
+<td><code>String</code></td>
+<td><code>ping</code></td>
+</tr>
+<tr>
+<td><code>hp</code></td>
+<td><code>Int</code></td>
+<td>health point: when this value decreases to 0, the session will be disconnected.</td>
+</tr>
+</tbody></table>
+<h4 id='method-2-sending-ping-messages-to-server'>Method 2: Sending ping messages to Server</h4>
+<blockquote>
+<p>Method 2. keep the connection alive by sending ping message to the server</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>&gt;&gt;&gt; { "op": "ping" }                                      # Client initiated ping message (every 30 seconds)
+&lt;&lt;&lt; { "m":"pong", "code":0, "ts":1614164189, "hp": 2 } # Server responds to client ping 
+</code></pre></div>
+<p>You can also send <code>ping</code> message to the server every 15 seconds to keep the connection alive. The server will stop sending <code>ping</code> message 
+for 30 seconds if a client initiated <code>ping</code> message is received. </p>
+
+<p><strong>Server Pong Message Schema</strong> </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td><code>String</code></td>
+<td><code>pong</code></td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td><code>Int</code></td>
+<td>error code, for the pong mesage, the error code is always 0 (success)</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>server time in UTC miliseconds</td>
+</tr>
+<tr>
+<td><code>hp</code></td>
+<td><code>Int</code></td>
+<td>health point: when this value decreases to 0, the session will be disconnected.</td>
+</tr>
+</tbody></table>
 <h2 id='public-stream-data'>Public Stream Data</h2><h3 id='channel-futures-pricing-data'>Channel: Futures Pricing Data</h3>
 <blockquote>
 <p>Sample Futures Pricing Data Message</p>
@@ -2219,240 +2471,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>if true, the buyer of the trade is the maker.</td>
 </tr>
 </tbody></table>
-<h2 id='private-stream-data'>Private Stream Data</h2><h3 id='authenticate-a-websocket-session'>Authenticate a WebSocket Session</h3>
-<p>You must authenticate the websocket session in order to recieve private data and send account specific requests 
-(e.g. placing new orders). </p>
-
-<p>You have two options to authenticate a websocket session. </p>
-
-<ul>
-<li>by adding authentication data in the request header when connecting to websocket. </li>
-<li>by sending an <code>op:auth</code> message to the server after you have connected to websocket. </li>
-</ul>
-
-<p>Once you successfully connect to the websocket, you will receive a <code>connected</code> message: </p>
-
-<ul>
-<li>for authenticated websocket session: <code>{&quot;op&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;auth&quot;}</code></li>
-<li>for unauthenticated websocket session: <code>{&quot;op&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;unauth&quot;}</code></li>
-</ul>
-
-<p>If the session is disconnected for some reason, you will receive a <code>disconnected</code> message:</p>
-
-<ul>
-<li><code>{&quot;m&quot;:&quot;disconnected&quot;,&quot;code&quot;:100005,&quot;reason&quot;:&quot;INVALID_WS_REQUEST_DATA&quot;,&quot;info&quot;:&quot;Session is disconnected due to missing pong message from the client&quot;}</code></li>
-</ul>
-<h3 id='prehash-string'>Prehash String</h3>
-<p><code>&lt;timestamp&gt;+v2/stream</code></p>
-<h3 id='method-1-websocket-authentication-with-request-headers'>Method 1 - WebSocket Authentication with Request Headers</h3>
-<blockquote>
-<p>Authenticate with Headers</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># # Install wscat from Node.js if you haven't</span>
-<span class="c"># npm install -g wscat  </span>
-
-<span class="nv">APIPATH</span><span class="o">=</span>v2/stream
-<span class="nv">APIKEY</span><span class="o">=</span>BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
-<span class="nv">SECRET</span><span class="o">=</span>fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
-<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s%N | <span class="nb">cut</span> <span class="nt">-c</span> <span class="nt">-13</span><span class="sb">`</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
-<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$MESSAGE</span> | openssl dgst <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$SECRET</span> <span class="nt">-binary</span> | <span class="nb">base64</span><span class="sb">`</span>
-
-wscat <span class="nt">-H</span> <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
-  <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class="nt">-w</span> 1 <span class="nt">-x</span> <span class="s1">'{"op":"sub", "id": "abc123", "ch": "futures-order"}'</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># python 3.6+
-</span><span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">base64</span>
-<span class="kn">import</span> <span class="nn">asyncio</span>    <span class="c1"># pip3 install asyncio
-</span><span class="kn">import</span> <span class="nn">websockets</span> <span class="c1"># pip3 install websockets
-</span>
-<span class="k">def</span> <span class="nf">hashing</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
-    <span class="n">hmac_key</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span>
-    <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">hmac_key</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">)</span>
-    <span class="n">signature_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="n">digest</span><span class="p">()).</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">signature_b64</span>
-
-<span class="k">def</span> <span class="nf">get_timestamp</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
-
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">websocket_auth_demo</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
-    <span class="n">apikey</span> <span class="o">=</span> <span class="s">"2pJkaH37i4wrVAMmFNoASVNCu4INP5F9"</span>
-    <span class="n">secret</span> <span class="o">=</span> <span class="s">"etvbsuZQafiECVdDb29PpwhzhWSf47kDpGxT8Fa7eZMjdGsUAQGHVudpt7S3ZY5w"</span>
-    <span class="n">ts</span> <span class="o">=</span> <span class="n">get_timestamp</span><span class="p">()</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">+</span> <span class="s">"+v2/stream"</span>
-    <span class="n">sig</span> <span class="o">=</span> <span class="n">hashing</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
-    <span class="n">auth_headers</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s">"x-auth-key"</span><span class="p">,</span> <span class="n">apikey</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">"x-auth-signature"</span><span class="p">,</span> <span class="n">sig</span><span class="p">),</span>
-        <span class="p">(</span><span class="s">"x-auth-timestamp"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">))]</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">websockets</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">extra_headers</span><span class="o">=</span><span class="n">auth_headers</span><span class="p">)</span> <span class="k">as</span> <span class="n">websocket</span><span class="p">:</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="p">.</span><span class="n">get_event_loop</span><span class="p">().</span><span class="n">run_until_complete</span><span class="p">(</span>
-    <span class="n">websocket_auth_demo</span><span class="p">(</span><span class="s">'wss://bitmax.io:443/0/api/pro/v2/stream'</span><span class="p">))</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello world"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div>
-<p>This is similar to the way you authenticate any RESTful request. You need to add the following header fields to the 
-connection request:</p>
-
-<ul>
-<li><code>x-auth-key</code></li>
-<li><code>x-auth-timestamp</code></li>
-<li><code>x-auth-signature</code></li>
-</ul>
-
-<p>The server will then check if the data is correctly signed before upgrading the connection protocol to WebSocket. </p>
-
-<p>Note that if you specify these header fields, the server will reject the websocket connection request if authentication fails. </p>
-<h3 id='method-2-websocket-authentication-by-sending-the-auth-message'>Method 2 - WebSocket Authentication by Sending the Auth Message</h3>
-<blockquote>
-<p>Authenticate by Sending the <code>auth</code> Message</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># # Install wscat from Node.js if you haven't</span>
-<span class="c"># npm install -g wscat  </span>
-
-<span class="nv">APIPATH</span><span class="o">=</span>v2/stream
-<span class="nv">APIKEY</span><span class="o">=</span>BclE7dBGbS1AP3VnOuq6s8fJH0fWbH7r
-<span class="nv">SECRET</span><span class="o">=</span>fAZcQRUMxj3eX3DreIjFcPiJ9UR3ZTdgIw8mxddvtcDxLoXvdbXJuFQYadUUsF7q
-<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span><span class="nb">date</span> +%s%N | <span class="nb">cut</span> <span class="nt">-c</span> <span class="nt">-13</span><span class="sb">`</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
-<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$MESSAGE</span> | openssl dgst <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$SECRET</span> <span class="nt">-binary</span> | <span class="nb">base64</span><span class="sb">`</span>
-
-wscat <span class="nt">-c</span> wss://bitmax.io/1/api/pro/v2/stream <span class="nt">-w</span> 1 <span class="nt">-x</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">op</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">auth</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">abc123</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">t</span><span class="se">\"</span><span class="s2">: </span><span class="nv">$TIMESTAMP</span><span class="s2">, "</span>key<span class="s2">": </span><span class="se">\"</span><span class="nv">$APIKEY</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">sig</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="nv">$SIGNATURE</span><span class="se">\"</span><span class="s2">}"</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># python 3.6+
-</span><span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">base64</span>
-<span class="kn">import</span> <span class="nn">asyncio</span>    <span class="c1"># pip3 install asyncio
-</span><span class="kn">import</span> <span class="nn">websockets</span> <span class="c1"># pip3 install websockets
-</span>
-<span class="k">def</span> <span class="nf">hashing</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
-    <span class="n">hmac_key</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span>
-    <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">hmac_key</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">)</span>
-    <span class="n">signature_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="n">digest</span><span class="p">()).</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">signature_b64</span>
-
-<span class="k">def</span> <span class="nf">get_timestamp</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
-
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">websocket_auth_demo</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
-    <span class="n">apikey</span> <span class="o">=</span> <span class="s">"2pJkaH37i4wrVAMmFNoASVNCu4INP5F9"</span>
-    <span class="n">secret</span> <span class="o">=</span> <span class="s">"etvbsuZQafiECVdDb29PpwhzhWSf47kDpGxT8Fa7eZMjdGsUAQGHVudpt7S3ZY5w"</span>
-    <span class="n">ts</span> <span class="o">=</span> <span class="n">get_timestamp</span><span class="p">()</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">+</span> <span class="s">"+stream"</span>
-    <span class="n">sig</span> <span class="o">=</span> <span class="n">hashing</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="s">"auth"</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s">"RandomID123"</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">apikey</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="n">sig</span><span class="p">)</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">websockets</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span> <span class="k">as</span> <span class="n">websocket</span><span class="p">:</span>
-        <span class="k">await</span> <span class="n">websocket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">auth</span><span class="p">))</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-<span class="n">asyncio</span><span class="p">.</span><span class="n">get_event_loop</span><span class="p">().</span><span class="n">run_until_complete</span><span class="p">(</span>
-    <span class="n">websocket_auth_demo</span><span class="p">(</span><span class="s">'wss://bitmax.io:443/0/api/pro/v2/stream'</span><span class="p">))</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello world"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div>
-<p>You can also authenticate a live websocket session by sending an <code>op:auth</code> message to the server. </p>
-
-<table><thead>
-<tr>
-<th>PARAMETER</th>
-<th>TYPE</th>
-<th>REQUIRED</th>
-<th>DESCRIPTION</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><a href="#websocket-operations-op">op</a></td>
-<td>ENUM</td>
-<td>Yes</td>
-<td><code>&quot;auth&quot;</code></td>
-</tr>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>No</td>
-<td>optional id field, you may safely skip it</td>
-</tr>
-<tr>
-<td>t</td>
-<td>Long</td>
-<td>Yes</td>
-<td>UTC timestamp in milliseconds, use this timestamp to generate signature</td>
-</tr>
-<tr>
-<td>key</td>
-<td>String</td>
-<td>Yes</td>
-<td>your api key</td>
-</tr>
-<tr>
-<td>sig</td>
-<td>String</td>
-<td>Yes</td>
-<td>the signature is generated by signing <code>&quot;&lt;timestamp&gt;+stream&quot;</code></td>
-</tr>
-</tbody></table>
-<h3 id='authentication-response'>Authentication Response</h3>
-<blockquote>
-<p>Auth success message</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
-  </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>Auth error message</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200006</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unable to find User Account Data"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>You will receive a message for authentication result after you send authentication request.</p>
-
-<table><thead>
-<tr>
-<th>PARAMETER</th>
-<th>TYPE</th>
-<th>DESCRIPTION</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>m</td>
-<td>ENUM</td>
-<td><code>&quot;auth&quot;</code></td>
-</tr>
-<tr>
-<td>id</td>
-<td>String</td>
-<td>echo back the id if you provide one in the request</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Long</td>
-<td>Any code other than 0 indicate an error in authentication</td>
-</tr>
-<tr>
-<td>err</td>
-<td>Optional[String]</td>
-<td>Provide detailed error message if code is not 0</td>
-</tr>
-</tbody></table>
-<h3 id='channel-order'>Channel: Order</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='private-stream-data'>Private Stream Data</h2><h3 id='channel-order'>Channel: Order</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"m"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-order"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sn"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">,</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
   </span><span class="nl">"e"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"ExecutionReport"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">event</span><span class="w">
