@@ -36,14 +36,15 @@ includes:
   - rest_prv_order_query_by_id
   - wss
   - wss_general
+  - wss_auth
+  - wss_keep_alive
   - wss_pub
   - wss_pub_futures_pricing_data
   - wss_sub_level1
   - wss_sub_level2
   - wss_sub_trades
   - wss_sub_bar
-  - wss_prv
-  - wss_prv_auth
+  - wss_prv <!--- - wss_prv_auth -->
   - wss_prv_order
   - wss_prv_account_update
   - wss_prv_req
