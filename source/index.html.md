@@ -63,6 +63,10 @@ code_clipboard: true
 
 ## Change Log
 
+**2021-02-23**
+
+* Removed collapseDecimals field from [*Futures Contracts Info*](#futures-contracts-info) response.
+
 **2021-02-22**
 
 * Added RESTful [*Current Order History*](#list-current-history-orders) API.
