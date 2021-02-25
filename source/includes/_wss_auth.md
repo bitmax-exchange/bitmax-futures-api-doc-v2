@@ -83,7 +83,7 @@ More comprehensive examples can be found at:
 
 * Python demo for [websocket auth](https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2/blob/main/scripts/minimum_websocket_client_sandbox.py)
 
-### Authentication Response
+**Authentication Response**
 
 > Auth success message
 
