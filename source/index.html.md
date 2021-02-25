@@ -64,6 +64,10 @@ code_clipboard: true
 
 ## Change Log
 
+**2021-02-25**
+
+* Updated *id* field requirement in WebSocket [*Place Order*](#ws-place-order) request.
+
 **2021-02-23**
 
 * Removed collapseDecimals field from [*Futures Contracts Info*](#futures-contracts-info) response.
@@ -81,10 +85,10 @@ code_clipboard: true
 
 **2021-02-19**
 
-* Added [*WebSocket Account Snapshot*](#ws-account-snapshot) API.
-* Added [*WebSocket Place Order*](#ws-place-order) API.
-* Added [*WebSocket Cancel Order*](#ws-cancel-order) API.
-* Added [*WebSocket Cancel All Orders*](#ws-cancel-all-orders) API.
+* Added WebSocket [*Account Snapshot*](#ws-account-snapshot) API.
+* Added WebSocket [*Place Order*](#ws-place-order) API.
+* Added WebSocket [*Cancel Order*](#ws-cancel-order) API.
+* Added WebSocket [*Cancel All Orders*](#ws-cancel-all-orders) API.
 
 **2021-02-18**
 
