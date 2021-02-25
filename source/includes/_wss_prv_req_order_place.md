@@ -10,7 +10,6 @@
    "id"    : "sampleRequestID", // the server will echo back this id in the ack message. 
    "args":{
       "time"      : 1613753879921,
-      "id"        : "sampleOrderId",  // optional, the server will use this id to generate the orderId.
       "symbol"    : "BTC-PERP",
       "orderPrice": "30000",
       "orderQty"  : "0.12",
@@ -63,11 +62,8 @@ see [placing order via RESTful API](#new-order).
 
 *id*
 
-As described in [Generate Order Id](#generate-order-id), the server uses a deterministic algorithm to compute the orderId based on client inputs. For order requests placed via WebSocketL
-
-* the server will use the `id` from the request `args`; 
-* if `id` is not provided in `args`, the server will fallback to the top level request `id`; 
-* if both `id`s are not present, the server will use a random string.
+As described in [Generate Order Id](#generate-order-id), the server uses a deterministic algorithm to compute the orderId based on client inputs. 
+For every order request placed via WebSocket, **We strongly recommend you put a non-repeatable id**.
 
 **Response**
 
