@@ -12,7 +12,8 @@
                     "orderPrice": "34000",
                     "orderQty"  : "0.1",
                     "orderType" : "limit",
-                    "side"      : "buy"
+                    "side"      : "buy",
+                    "respInst"  : "ACK"
                 },
                 {
                     "id"        : "sampleRequestId2",
@@ -20,8 +21,9 @@
                     "symbol"    : "BTC-PERP",
                     "orderPrice": "35000",
                     "orderQty"  : "0.2",
-                    "orderType" : "limit",
-                    "side"      : "buy"
+                    "orderType" : "market",
+                    "side"      : "buy",
+                    "respInst"  : "ACK"
                 }
               ]
 }
@@ -48,7 +50,7 @@
             {
                 "id"       : "sampleRequestId2",
                 "orderId"  : "a177c2a8cfe1U0123456789equestId2",
-                "orderType": "Limit",
+                "orderType": "Market",
                 "symbol"   : "BTC-PERP",
                 "timestamp": 1613878579202
             }
@@ -75,4 +77,6 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
  Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
  orders        | List                | List of order items                    
-please refer to [placing new order](#new-order) for order item definition
+please refer to [placing new order](#new-order) for order item definition.
+
+Only *ACK* is allowed for **respInst** field in batch new orders.

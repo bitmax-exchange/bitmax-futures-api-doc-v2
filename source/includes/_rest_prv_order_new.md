@@ -58,7 +58,7 @@ price                                       | String    |          | Required fo
 orderQty                                    | String    | Yes      | Order size. Please set scale properly for each symbol.
 [orderType](#order-type-ordertype)          | ENUM      | Yes      | 
 [side](#side-side)                          | ENUM      | Yes      |
-[respInst](#response-type-respinst)         | ENUM      |          | `ACK` by default
+[respInst](#response-type-respinst)         | ENUM      |          | `ACK` for limit order and `Done` for market order by default
 postOnly                                    | Boolean   |          | `false` by default
 stopPrice                                   | String    |          | required for `StopLimit` and `StopMarket` orders
 [timeInForce](#time-in-force-timeinforce)   | ENUM      |          | `GTC` by default
