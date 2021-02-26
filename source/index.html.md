@@ -64,6 +64,11 @@ code_clipboard: true
 
 ## Change Log
 
+**2021-02-26**
+
+* Updated *respInst* field requirement in [*Place Batch Orders*](#place-batch-orders).
+* Updated *respInst* field explanation in [*Place New Order*](#new-order).
+
 **2021-02-25**
 
 * Updated *id* field requirement in WebSocket [*Place Order*](#ws-place-order) request.
