@@ -79,4 +79,4 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
  orders        | List                | List of order items                    
 please refer to [placing new order](#new-order) for order item definition.
 
-Only *ACK* is allowed for **respInst** field in batch new orders.
+**respInst** field is required for market order and only *ACK* is allowed.
