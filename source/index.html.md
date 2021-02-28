@@ -64,7 +64,7 @@ search: true
 code_clipboard: true
 ---
 
-# Introducing Futures Pro (v2) APIs (Testnet Only)
+# Introducing Futures Pro (v2) APIs (Mainnet / Testnet)
 
 ## Change Log
 
@@ -103,6 +103,10 @@ code_clipboard: true
 
 * Replaced `baseAsset` and `quoteAsset` with `settlementAsset` in [*Futures Contract Info*](#futures-contracts-info) response.
 * Updated [*Account Info*](#account-info) API path.
+
+## Mainnet
+
+URL: [*https://bitmax.io*](https://bitmax.io/)
 
 ## Testnet 
 
