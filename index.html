@@ -319,10 +319,13 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introducing-futures-pro-v2-apis-testnet-only" class="toc-h1 toc-link" data-title="Introducing Futures Pro (v2) APIs (Testnet Only)">Introducing Futures Pro (v2) APIs (Testnet Only)</a>
+            <a href="#introducing-futures-pro-v2-apis-mainnet-testnet" class="toc-h1 toc-link" data-title="Introducing Futures Pro (v2) APIs (Mainnet / Testnet)">Introducing Futures Pro (v2) APIs (Mainnet / Testnet)</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#change-log" class="toc-h2 toc-link" data-title="Change Log">Change Log</a>
+                  </li>
+                  <li>
+                    <a href="#mainnet" class="toc-h2 toc-link" data-title="Mainnet">Mainnet</a>
                   </li>
                   <li>
                     <a href="#testnet" class="toc-h2 toc-link" data-title="Testnet">Testnet</a>
@@ -546,7 +549,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introducing-futures-pro-v2-apis-testnet-only'>Introducing Futures Pro (v2) APIs (Testnet Only)</h1><h2 id='change-log'>Change Log</h2>
+        <h1 id='introducing-futures-pro-v2-apis-mainnet-testnet'>Introducing Futures Pro (v2) APIs (Mainnet / Testnet)</h1><h2 id='change-log'>Change Log</h2>
 <p><strong>2021-02-26</strong></p>
 
 <ul>
@@ -596,6 +599,8 @@
 <li>Replaced <code>baseAsset</code> and <code>quoteAsset</code> with <code>settlementAsset</code> in <a href="#futures-contracts-info"><em>Futures Contract Info</em></a> response.</li>
 <li>Updated <a href="#account-info"><em>Account Info</em></a> API path.</li>
 </ul>
+<h2 id='mainnet'>Mainnet</h2>
+<p>URL: <a href="https://bitmax.io/"><em>https://bitmax.io</em></a></p>
 <h2 id='testnet'>Testnet</h2>
 <p>Testnet URL: <a href="https://api-test.bitmax-sandbox.io/"><em>https://api-test.bitmax-sandbox.io</em></a></p>
 
@@ -1972,16 +1977,20 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
 <p>Base endpoints:</p>
 
 <ul>
-<li>Testnet: 
+<li><p>Testnet: </p>
 
 <ul>
 <li>Public endpoint: <code>wss://api-test.bitmax-sandbox.io:443/api/pro/v2/stream</code></li>
 <li>Private endpoint: <code>wss://api-test.bitmax-sandbox.io:443/&lt;grp&gt;/api/pro/v2/stream</code></li>
 </ul></li>
-<li>Mainnet: not available yet</li>
-</ul>
+<li><p>Mainnet:</p>
 
-<p>You can only authenticate a WebSocket session via a private endpoint.</p>
+<ul>
+<li>Public endpoint: <code>wss://bitmax.io:443/api/pro/v2/stream</code></li>
+<li>Private endpoint: <code>wss://bitmax.io:443/&lt;grp&gt;/api/pro/v2/stream</code>
+You can only authenticate a WebSocket session via a private endpoint.</li>
+</ul></li>
+</ul>
 <h2 id='websocket-authentication'>WebSocket Authentication</h2>
 <p>You must authenticate the websocket session in order to recieve private data and send account specific requests 
 (e.g. placing new orders). </p>
