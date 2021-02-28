@@ -55,6 +55,10 @@ includes:
   - appendix
   - appendix_enum
 
+header_navigators:
+  - <a href="https://bitmax-exchange.github.io/bitmax-pro-api/#bitmax-pro-api-documentation">Cash/Margin APIs</a>
+  - <a href="https://bitmax-exchange.github.io/bitmax-futures-api-doc-v2/#bitmax-futures-trading-api-documentation" class="current">Futures APIs</a>
+
 search: true
 
 code_clipboard: true
