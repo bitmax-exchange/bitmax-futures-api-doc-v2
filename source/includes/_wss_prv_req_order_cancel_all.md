@@ -52,6 +52,7 @@
    "ac"    : "FUTURES",
    "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
+      "symbol"  : "",
       "reason"  : "INVALID_PRODUCT",
       "errorMsg": "Invalid Product Symbol"
    }
