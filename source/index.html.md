@@ -64,7 +64,16 @@ code_clipboard: true
 
 ## Change Log
 
-**2021-02-26**
+**2021-03-03**
+
+* Updated *nextFundingTime* value in RESTful [*Futures Pricing Data*](#futures-pricing-data) response.
+* Updated nextFundingTime *f* value in WebSocket [*Futures Pricing Data*](#channel-futures-pricing-data) message.
+* Added error response demo in [*Place New Order*](#new-order).
+* Added error response demo in [*Place Batch Orders*](#place-batch-orders).
+* Fixed bug in [*Cancel All Open Orders*](#cancel-all-open-orders) when no data is passed in request body.
+* Fixed bug of *URL Not Found* in [*Account Info*](#account-info).
+
+**2021-02-26**  
 
 * Updated *respInst* field requirement in [*Place Batch Orders*](#place-batch-orders).
 * Updated *respInst* field explanation in [*Place New Order*](#new-order).

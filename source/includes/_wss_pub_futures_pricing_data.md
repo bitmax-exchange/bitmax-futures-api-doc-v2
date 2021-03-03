@@ -12,7 +12,7 @@
             "mp": "28142.586177036",  // mark price
             "ip": "28838.695",        // index price
             "r": "-0.005",            // funding rate 
-            "f": 1609329600000        // next funding time
+            "f": 1609372800000        // next funding time
         }
     ],
     "col": [  // all collaterals

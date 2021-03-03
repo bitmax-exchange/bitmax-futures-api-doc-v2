@@ -1,6 +1,6 @@
 ### New Order 
 
-> Response
+> Successful Response
 
 ```json
 {
@@ -36,6 +36,23 @@
             "errorCode"   : ""
         }
     }
+}
+```
+
+> Error Response
+
+```json
+{
+    "ac": "FUTURES",
+    "accountId": "sample-futures-account-id",
+    "action": "place-order",
+    "code": 300014,
+    "info": {
+        "id": "abcd1234abcd1234",
+        "symbol": "BTC-PERP"
+    },
+    "message": "Order price doesn't conform to the required tick size: 1",
+    "reason": "TICK_SIZE_VIOLATION"
 }
 ```
 

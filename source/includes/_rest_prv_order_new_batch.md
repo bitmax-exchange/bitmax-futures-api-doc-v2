@@ -58,7 +58,34 @@
     }
 }
 ```
+> Error Response
 
+```json
+{
+    "ac": "FUTURES",
+    "accountId": "sample-futures-account-id",
+    "action": "batch-place-order",
+    "code": 300013,
+    "info": [
+        {
+            "code": 300013,
+            "id": "sampleRequestId1",
+            "message": "Some invalid order in this batch.",
+            "reason": "INVALID_BATCH_ORDER",
+            "symbol": "BTC-PERP"
+        },
+        {
+            "code": 320008,
+            "id": "sampleRequestId2",
+            "message": "Futures account exposure higher than system acceptable level.",
+            "reason": "FUTURES_TOO_RISKY",
+            "symbol": "BTC-PERP"
+        }
+    ],
+    "message": "Batch Order failed, please check each order info for detail.",
+    "reason": "INVALID_BATCH_ORDER"
+}
+```
 
 Place multiple orders in a batch. If any order(s) fails our basic check, the whole batch request will fail.
 
