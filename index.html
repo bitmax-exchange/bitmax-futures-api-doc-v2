@@ -708,10 +708,13 @@ maintenance margin rate.</p>
 <li>Position Maintenance Margin = sum(CPN * Maintenance Margin) Rate for each contract in the cross group</li>
 </ul>
 <h3 id='liquidation-price'>Liquidation Price</h3>
+<ul>
+<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
+</ul>
+
 <p><strong>For long positions</strong></p>
 
 <ul>
-<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
 <li>R = abs(position size) * (1 - maintenance margin rate)</li>
 <li>Liquidation Price = mark price - V / R</li>
 </ul>
@@ -721,7 +724,6 @@ maintenance margin rate.</p>
 <p><strong>For short positions</strong></p>
 
 <ul>
-<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
 <li>R = abs(position size) * (1 + maintenance margin rate)</li>
 <li>Liquidation Price = mark price + V / R</li>
 </ul>
