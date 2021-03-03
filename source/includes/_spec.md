@@ -6,14 +6,9 @@
 
 ### Contract Position Notional (CPN)
 
-For the isolated group:
+* CPN = abs(position size * mark price) for the contract 
 
-* CPN = abs(position size * mark price) for the contract in the isolated group
-
-For the cross group: 
-
-* CPN = sum of abs(position size * mark price) for all contracts in the cross group
-
+CPN is defined for each contract.
 
 
 ### Total Margin
@@ -35,7 +30,7 @@ Discount factor can be found in the `discountFactor` field from the [Futures Col
 
 ### Position Initial/Maintenance Margin Rate
 
-Initial/Maintenance Margin Rate is system-specified for each position brackets and each contract. You may refer to the `marginRequirements` 
+Initial/Maintenance Margin Rate is system-specified for each position bracket and each contract. You may refer to the `marginRequirements` 
 section from the [Futures Contract Info](#futures-contracts-info) endpoint for position brackets.
 
 You should compare [Contract Position Notional (CPN)](#contract-position-notional-cpn) with each position bracket to determine your initial and 
@@ -45,22 +40,30 @@ maintenance margin rate.
 
 ### Position Initial/Maintenance Margin
 
+**For the isolated group**
+
 * Position Initial Margin = CPN * Initial Margin Rate
-* Position Maintenance Margin = CPN * Maintenance Margin Rate
+* Position Maintenance Margin = CPN * Maintenance Margin
+
+**For the cross group**
+
+* Position Initial Margin = sum(CPN * Initial Margin Rate) for each contract in the cross group
+* Position Maintenance Margin = sum(CPN * Maintenance Margin) Rate for each contract in the cross group
 
 
 
 ### Liquidation Price
 
-* V = Total Margin + Unrealized Pnl - Maintenance Margin
-* R = abs(position size) * (1 - maintenance margin rate)
-
 **For Long position**
 
+* V = Total Margin + Unrealized Pnl - Maintenance Margin
+* R = abs(position size) * (1 - maintenance margin rate)
 * Liquidation Price = mark price - V / R
 
 If the calculated liquidation price is negative, the position won't be liquidation even when the price becomes zero.
 
+* V = Total Margin + Unrealized Pnl - Maintenance Margin
+* R = abs(position size) * (1 + maintenance margin rate)
 **For Short Position**
 
 * Liquidation Price = mark price + V / R
