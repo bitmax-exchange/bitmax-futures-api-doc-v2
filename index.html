@@ -583,6 +583,8 @@
 <li>Added error response demo in <a href="#place-batch-orders"><em>Place Batch Orders</em></a>.</li>
 <li>Fixed bug in <a href="#cancel-all-open-orders"><em>Cancel All Open Orders</em></a> when no data is passed in request body.</li>
 <li>Fixed bug of <em>URL Not Found</em> in <a href="#account-info"><em>Account Info</em></a>.</li>
+<li>Added <em>openInterest</em> in <a href="#futures-pricing-data"><em>Futures Pricing Data</em></a></li>
+<li>Added <em>oi</em> (open interest) in <a href="#channel-futures-pricing-data"><em>Channel: Futures Pricing Data</em></a></li>
 </ul>
 
 <p><strong>2021-02-26</strong>  </p>
@@ -822,45 +824,46 @@ maintenance margin rate.</p>
 <p>Requesting pricing data for all futures contract</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"contracts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"time"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="mi">1609368616960</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
-        </span><span class="nl">"symbol"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">symbol</span><span class="w">
-        </span><span class="nl">"markPrice"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"28097.526022138"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">contract</span><span class="w">
-        </span><span class="nl">"indexPrice"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"28768.535"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">underlying</span><span class="w"> </span><span class="err">index</span><span class="w">
-        </span><span class="nl">"fundingRate"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.005"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w">
-        </span><span class="nl">"nextFundingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609372800000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"collaterals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDTR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">reference</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">(quote</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">USDT)</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9996"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"747.945"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"PAX"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9995"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28761.985"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"asset"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"contracts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"symbol"</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">symbol</span><span class="w">
+                </span><span class="nl">"time"</span><span class="w">           </span><span class="p">:</span><span class="w"> </span><span class="mi">1614815005717</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
+                </span><span class="nl">"fundingRate"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000564448"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w"> 
+                </span><span class="nl">"indexPrice"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"50657.35"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">index</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">underlying</span><span class="w">
+                </span><span class="nl">"markPrice"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"50667.130409723"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">mark</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">contract</span><span class="w">
+                </span><span class="nl">"openInterest"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"90.7366"</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w">
+                </span><span class="nl">"nextFundingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614816000000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"collaterals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDTR"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9994"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1582.3264074"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99645"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50636.14"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"referencePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Get pricing data for all futures contracts. </p>
@@ -2386,36 +2389,37 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-pricing-data"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"con"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">contracts</span><span class="w">
+    </span><span class="nl">"con"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">contracts</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">symbol</span><span class="w">
-            </span><span class="nl">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609371076960</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">time</span><span class="w">
-            </span><span class="nl">"mp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28142.586177036"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">mark</span><span class="w"> </span><span class="err">price</span><span class="w">
-            </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28838.695"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">index</span><span class="w"> </span><span class="err">price</span><span class="w">
-            </span><span class="nl">"r"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.005"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w"> 
-            </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609372800000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w">
+            </span><span class="nl">"s"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">symbol</span><span class="w">
+            </span><span class="nl">"t"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1614814705716</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">time</span><span class="w">
+            </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50702.8"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">index</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="nl">"mp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50652.3553"</span><span class="p">,</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">mark</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="nl">"r"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000565699"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w"> 
+            </span><span class="nl">"oi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90.7367"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">open</span><span class="w"> </span><span class="err">interest</span><span class="w">
+            </span><span class="nl">"f"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1614816000000</span><span class="w">      </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">collaterals</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">collateral</span><span class="w"> </span><span class="err">assets</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDTR"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">asset</span><span class="w">
-            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">reference</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDTR"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">asset</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">reference</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">(quote</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">USDT)</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDC"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9996"</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.99935"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"749.82"</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1582.505"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAX"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0002"</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.9964"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28834.165"</span><span class="w">
+            </span><span class="nl">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50621.795"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
