@@ -20,7 +20,7 @@ Total margin is set by the user. You can find its value in the `isolatedMargin` 
 You can increase / decrease the total margin of the isolated margin group via the [Change Margin](#change-margin-for-isolated-positions) endpoint.
 
 
-**For the cross group**
+**For the crossed group**
 
 * Total Margin = sum(Asset Balance * Reference Price * Collateral Discount Factor) for each collateral asset
 
@@ -45,10 +45,10 @@ maintenance margin rate.
 * Position Initial Margin = CPN * Initial Margin Rate
 * Position Maintenance Margin = CPN * Maintenance Margin
 
-**For the cross group**
+**For the crossed group**
 
-* Position Initial Margin = sum(CPN * Initial Margin Rate) for each contract in the cross group
-* Position Maintenance Margin = sum(CPN * Maintenance Margin) Rate for each contract in the cross group
+* Position Initial Margin = sum(CPN * Initial Margin Rate) for each contract in the crossed group
+* Position Maintenance Margin = sum(CPN * Maintenance Margin) Rate for each contract in the crossed group
 
 
 
