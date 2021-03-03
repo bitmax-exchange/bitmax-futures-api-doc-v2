@@ -10,6 +10,7 @@ toc_footers:
   - <a href='https://bitmax.io'>Sign Up for BitMax.io</a>
 
 includes:
+  - spec
   - rest
   - rest_pub_general
   - rest_pub_general_futures_products
