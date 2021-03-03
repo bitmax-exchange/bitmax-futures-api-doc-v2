@@ -64,9 +64,9 @@ This API returns all current history orders for futures account.
 
  Name            | Type      | Required | Description                                                                                 
 ---------------- | --------- | -------- | ------------------------------------------------------------------------------------------- 
- `symbol`        | `String`  | No       | symbol filter, e.g. `"BTC-PERP"`
- `n`             | `Int`     | No       | maximum number of orders to be included in the response
- `executedOnly`  | `Boolean` | No       | if `True`, include orders with non-zero filled quantities only.
+ symbol          | String    | No       | symbol filter, e.g. `"BTC-PERP"`
+ n               | Int       | No       | maximum number of orders to be included in the response
+ executedOnly    | Boolean   | No       | if `True`, include orders with non-zero filled quantities only.
 
 **Response**
 
