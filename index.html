@@ -668,17 +668,11 @@
 <h2 id='demo-code'>Demo Code</h2>
 <p>Python Demo: <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2"><em>https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2</em></a></p>
 <h1 id='general-info'>General Info</h1><h2 id='futures-trading-system-specification'>Futures Trading System Specification</h2><h3 id='contract-position-notional-cpn'>Contract Position Notional (CPN)</h3>
-<p>For the isolated group:</p>
-
 <ul>
-<li>CPN = abs(position size * mark price) for the contract in the isolated group</li>
+<li>CPN = abs(position size * mark price) for the contract </li>
 </ul>
 
-<p>For the cross group: </p>
-
-<ul>
-<li>CPN = sum of abs(position size * mark price) for all contracts in the cross group</li>
-</ul>
+<p>CPN is defined for each contract.</p>
 <h3 id='total-margin'>Total Margin</h3>
 <p><strong>For the isolated group</strong></p>
 
@@ -694,34 +688,41 @@
 
 <p>Discount factor can be found in the <code>discountFactor</code> field from the <a href="#futures-collateral-asset-info">Futures Collateral Asset Info</a> endpoint.</p>
 <h3 id='position-initial-maintenance-margin-rate'>Position Initial/Maintenance Margin Rate</h3>
-<p>Initial/Maintenance Margin Rate is system-specified for each position brackets and each contract. You may refer to the <code>marginRequirements</code> 
+<p>Initial/Maintenance Margin Rate is system-specified for each position bracket and each contract. You may refer to the <code>marginRequirements</code> 
 section from the <a href="#futures-contracts-info">Futures Contract Info</a> endpoint for position brackets.</p>
 
 <p>You should compare <a href="#contract-position-notional-cpn">Contract Position Notional (CPN)</a> with each position bracket to determine your initial and 
 maintenance margin rate.</p>
 <h3 id='position-initial-maintenance-margin'>Position Initial/Maintenance Margin</h3>
+<p><strong>For the isolated group</strong></p>
+
 <ul>
 <li>Position Initial Margin = CPN * Initial Margin Rate</li>
-<li>Position Maintenance Margin = CPN * Maintenance Margin Rate</li>
-</ul>
-<h3 id='liquidation-price'>Liquidation Price</h3>
-<ul>
-<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
-<li>R = abs(position size) * (1 - maintenance margin rate)</li>
+<li>Position Maintenance Margin = CPN * Maintenance Margin</li>
 </ul>
 
+<p><strong>For the cross group</strong></p>
+
+<ul>
+<li>Position Initial Margin = sum(CPN * Initial Margin Rate) for each contract in the cross group</li>
+<li>Position Maintenance Margin = sum(CPN * Maintenance Margin) Rate for each contract in the cross group</li>
+</ul>
+<h3 id='liquidation-price'>Liquidation Price</h3>
 <p><strong>For Long position</strong></p>
 
 <ul>
+<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
+<li>R = abs(position size) * (1 - maintenance margin rate)</li>
 <li>Liquidation Price = mark price - V / R</li>
 </ul>
 
 <p>If the calculated liquidation price is negative, the position won&#39;t be liquidation even when the price becomes zero.</p>
 
-<p><strong>For Short Position</strong></p>
-
 <ul>
-<li>Liquidation Price = mark price + V / R</li>
+<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
+<li><p>R = abs(position size) * (1 + maintenance margin rate)
+<strong>For Short Position</strong></p></li>
+<li><p>Liquidation Price = mark price + V / R</p></li>
 </ul>
 <h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
