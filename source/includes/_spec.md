@@ -54,7 +54,7 @@ maintenance margin rate.
 
 ### Liquidation Price
 
-**For Long position**
+**For long positions**
 
 * V = Total Margin + Unrealized Pnl - Maintenance Margin
 * R = abs(position size) * (1 - maintenance margin rate)
@@ -62,7 +62,8 @@ maintenance margin rate.
 
 If the calculated liquidation price is negative, the position won't be liquidation even when the price becomes zero.
 
-**For Short Position**
+
+**For short positions**
 
 * V = Total Margin + Unrealized Pnl - Maintenance Margin
 * R = abs(position size) * (1 + maintenance margin rate)
