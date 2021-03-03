@@ -2855,6 +2855,7 @@ value into one aggregated item. Each trade object contains the following fields:
    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_PRICE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order price is too low from market price."</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -2931,6 +2932,7 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
    </span><span class="nl">"code"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">300006</span><span class="p">,</span><span class="w">
    </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -3008,6 +3010,7 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
    </span><span class="nl">"ac"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">back</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">original</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">Id</span><span class="w">
    </span><span class="nl">"info"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reason"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_PRODUCT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Product Symbol"</span><span class="w">
    </span><span class="p">}</span><span class="w">
