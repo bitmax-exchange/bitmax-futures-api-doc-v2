@@ -14,7 +14,7 @@
         "markPrice"      : "28097.526022138",   // market price of the contract
         "indexPrice"     : "28768.535",         // price of the underlying index
         "fundingRate"    : "-0.005",            // funding rate
-        "nextFundingTime": 1609329600000        // next funding time (UTC timestamp in milliseconds)
+        "nextFundingTime": 1609372800000        // next funding time (UTC timestamp in milliseconds)
       }
     ],
     "collaterals": [
