@@ -338,6 +338,28 @@
               </ul>
           </li>
           <li>
+            <a href="#general-info" class="toc-h1 toc-link" data-title="General Info">General Info</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#futures-trading-system-specification" class="toc-h2 toc-link" data-title="Futures Trading System Specification">Futures Trading System Specification</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#contract-position-notional-cpn" class="toc-h3 toc-link" data-title="Contract Position Notional (CPN)">Contract Position Notional (CPN)</a>
+                          </li>
+                          <li>
+                            <a href="#position-initial-maintenance-margin-rate" class="toc-h3 toc-link" data-title="Position Initial/Maintenance Margin Rate">Position Initial/Maintenance Margin Rate</a>
+                          </li>
+                          <li>
+                            <a href="#position-initial-maintenance-margin" class="toc-h3 toc-link" data-title="Position Initial/Maintenance Margin">Position Initial/Maintenance Margin</a>
+                          </li>
+                          <li>
+                            <a href="#liquidation-price" class="toc-h3 toc-link" data-title="Liquidation Price">Liquidation Price</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#restful-apis" class="toc-h1 toc-link" data-title="RESTful APIs">RESTful APIs</a>
               <ul class="toc-list-h2">
                   <li>
@@ -642,6 +664,34 @@
 </ul>
 <h2 id='demo-code'>Demo Code</h2>
 <p>Python Demo: <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2"><em>https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2</em></a></p>
+<h1 id='general-info'>General Info</h1><h2 id='futures-trading-system-specification'>Futures Trading System Specification</h2><h3 id='contract-position-notional-cpn'>Contract Position Notional (CPN)</h3>
+<p>For the isolated group, CPN is the absolute value of <code>position size * mark price</code> of the contract.</p>
+
+<p>For the cross group, CPN is the sum of absolute value of <code>position size * mark price</code> of all contracts in cross mode. </p>
+<h3 id='position-initial-maintenance-margin-rate'>Position Initial/Maintenance Margin Rate</h3>
+<p>Initial/Maintenance Margin Rate is system-specified for each position brackets and each contract. You may refer to the <code>marginRequirements</code> 
+section from the <a href="#futures-contracts-info">Futures Contract Info</a> endpoint for position brackets.</p>
+
+<p>You should compare <a href="#contract-position-notional">Contract Position Notional</a> with each position bracket to determine your initial and 
+maintenance margin rate.</p>
+<h3 id='position-initial-maintenance-margin'>Position Initial/Maintenance Margin</h3>
+<p>Position Initial Margin = CPN * Initial Margin Rate</p>
+
+<p>Position Maintenance Margin = CPN * Maintenance Margin Rate</p>
+<h3 id='liquidation-price'>Liquidation Price</h3>
+<p><strong>For Long position</strong></p>
+
+<p>V = Total Margin + Unrealized Pnl</p>
+
+<p>Liquidation Price = mark price - (V - Maintenance Margin) / abs(position size * (1 - maintenance margin rate))</p>
+
+<p>If the calculated liquidation price is negative, the position won&#39;t be liquidation even when the price becomes zero.</p>
+
+<p><strong>For Short Position</strong></p>
+
+<p>V = Total Margin + Unrealized Pnl </p>
+
+<p>Liquidation Price = mark price + (V - Maintenance Margin) / abs(position size * (1 - maintenance margin rate))</p>
 <h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
 <p>Response - Futures Contracts Info</p>
