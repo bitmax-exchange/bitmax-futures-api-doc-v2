@@ -77,6 +77,8 @@ code_clipboard: true
 * Added error response demo in [*Place Batch Orders*](#place-batch-orders).
 * Fixed bug in [*Cancel All Open Orders*](#cancel-all-open-orders) when no data is passed in request body.
 * Fixed bug of *URL Not Found* in [*Account Info*](#account-info).
+* Added *openInterest* in [*Futures Pricing Data*](#futures-pricing-data)
+* Added *oi* (open interest) in [*Channel: Futures Pricing Data*](#channel-futures-pricing-data)
 
 **2021-02-26**  
 
