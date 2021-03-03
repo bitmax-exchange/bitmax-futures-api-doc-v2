@@ -718,11 +718,12 @@ maintenance margin rate.</p>
 
 <p>If the calculated liquidation price is negative, the position won&#39;t be liquidation even when the price becomes zero.</p>
 
+<p><strong>For Short Position</strong></p>
+
 <ul>
 <li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
-<li><p>R = abs(position size) * (1 + maintenance margin rate)
-<strong>For Short Position</strong></p></li>
-<li><p>Liquidation Price = mark price + V / R</p></li>
+<li>R = abs(position size) * (1 + maintenance margin rate)</li>
+<li>Liquidation Price = mark price + V / R</li>
 </ul>
 <h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
