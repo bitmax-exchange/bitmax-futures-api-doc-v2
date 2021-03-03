@@ -549,7 +549,18 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introducing-futures-pro-v2-apis-mainnet-testnet'>Introducing Futures Pro (v2) APIs (Mainnet / Testnet)</h1><h2 id='change-log'>Change Log</h2>
-<p><strong>2021-02-26</strong></p>
+<p><strong>2021-03-03</strong></p>
+
+<ul>
+<li>Updated <em>nextFundingTime</em> value in RESTful <a href="#futures-pricing-data"><em>Futures Pricing Data</em></a> response.</li>
+<li>Updated nextFundingTime <em>f</em> value in WebSocket <a href="#channel-futures-pricing-data"><em>Futures Pricing Data</em></a> message.</li>
+<li>Added error response demo in <a href="#new-order"><em>Place New Order</em></a>.</li>
+<li>Added error response demo in <a href="#place-batch-orders"><em>Place Batch Orders</em></a>.</li>
+<li>Fixed bug in <a href="#cancel-all-open-orders"><em>Cancel All Open Orders</em></a> when no data is passed in request body.</li>
+<li>Fixed bug of <em>URL Not Found</em> in <a href="#account-info"><em>Account Info</em></a>.</li>
+</ul>
+
+<p><strong>2021-02-26</strong>  </p>
 
 <ul>
 <li>Updated <em>respInst</em> field requirement in <a href="#place-batch-orders"><em>Place Batch Orders</em></a>.</li>
@@ -735,7 +746,7 @@
         </span><span class="nl">"markPrice"</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"28097.526022138"</span><span class="p">,</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">contract</span><span class="w">
         </span><span class="nl">"indexPrice"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"28768.535"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">underlying</span><span class="w"> </span><span class="err">index</span><span class="w">
         </span><span class="nl">"fundingRate"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.005"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w">
-        </span><span class="nl">"nextFundingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609329600000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
+        </span><span class="nl">"nextFundingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609372800000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">(UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds)</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"collaterals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1303,7 +1314,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2/blob/80942a5f2414a01c72d2ed660957a9e8d29a511e/cli/util.py#L82">gen server order id</a></p>
 <h3 id='new-order'>New Order</h3>
 <blockquote>
-<p>Response</p>
+<p>Successful Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1338,6 +1349,22 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
             </span><span class="nl">"errorCode"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-futures-account-id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300014</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234abcd1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order price doesn't conform to the required tick size: 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICK_SIZE_VIOLATION"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><strong>HTTP Request</strong></p>
@@ -1499,6 +1526,34 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-futures-account-id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-place-order"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some invalid order in this batch."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BATCH_ORDER"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">320008</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleRequestId2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Futures account exposure higher than system acceptable level."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES_TOO_RISKY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch Order failed, please check each order info for detail."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BATCH_ORDER"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Place multiple orders in a batch. If any order(s) fails our basic check, the whole batch request will fail.</p>
@@ -2248,7 +2303,7 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
             </span><span class="nl">"mp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28142.586177036"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">mark</span><span class="w"> </span><span class="err">price</span><span class="w">
             </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28838.695"</span><span class="p">,</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">index</span><span class="w"> </span><span class="err">price</span><span class="w">
             </span><span class="nl">"r"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.005"</span><span class="p">,</span><span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">rate</span><span class="w"> 
-            </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609329600000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w">
+            </span><span class="nl">"f"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609372800000</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">next</span><span class="w"> </span><span class="err">funding</span><span class="w"> </span><span class="err">time</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"col"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">collaterals</span><span class="w">
