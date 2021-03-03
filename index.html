@@ -347,6 +347,9 @@
                             <a href="#contract-position-notional-cpn" class="toc-h3 toc-link" data-title="Contract Position Notional (CPN)">Contract Position Notional (CPN)</a>
                           </li>
                           <li>
+                            <a href="#total-margin" class="toc-h3 toc-link" data-title="Total Margin">Total Margin</a>
+                          </li>
+                          <li>
                             <a href="#position-initial-maintenance-margin-rate" class="toc-h3 toc-link" data-title="Position Initial/Maintenance Margin Rate">Position Initial/Maintenance Margin Rate</a>
                           </li>
                           <li>
@@ -665,33 +668,61 @@
 <h2 id='demo-code'>Demo Code</h2>
 <p>Python Demo: <a href="https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2"><em>https://github.com/bitmax-exchange/bitmax-futures-api-demo-v2</em></a></p>
 <h1 id='general-info'>General Info</h1><h2 id='futures-trading-system-specification'>Futures Trading System Specification</h2><h3 id='contract-position-notional-cpn'>Contract Position Notional (CPN)</h3>
-<p>For the isolated group, CPN is the absolute value of <code>position size * mark price</code> of the contract.</p>
+<p>For the isolated group:</p>
 
-<p>For the cross group, CPN is the sum of absolute value of <code>position size * mark price</code> of all contracts in cross mode. </p>
+<ul>
+<li>CPN = abs(position size * mark price) for the contract in the isolated group</li>
+</ul>
+
+<p>For the cross group: </p>
+
+<ul>
+<li>CPN = sum of abs(position size * mark price) for all contracts in the cross group</li>
+</ul>
+<h3 id='total-margin'>Total Margin</h3>
+<p><strong>For the isolated group</strong></p>
+
+<p>Total margin is set by the user. You can find its value in the <code>isolatedMargin</code> field from the <a href="#position">Position</a> endpoint. </p>
+
+<p>You can increase / decrease the total margin of the isolated margin group via the <a href="#change-margin-for-isolated-positions">Change Margin</a> endpoint.</p>
+
+<p><strong>For the cross group</strong></p>
+
+<ul>
+<li>Total Margin = sum(Asset Balance * Reference Price * Collateral Discount Factor) for each collateral asset</li>
+</ul>
+
+<p>Discount factor can be found in the <code>discountFactor</code> field from the <a href="#futures-collateral-asset-info">Futures Collateral Asset Info</a> endpoint.</p>
 <h3 id='position-initial-maintenance-margin-rate'>Position Initial/Maintenance Margin Rate</h3>
 <p>Initial/Maintenance Margin Rate is system-specified for each position brackets and each contract. You may refer to the <code>marginRequirements</code> 
 section from the <a href="#futures-contracts-info">Futures Contract Info</a> endpoint for position brackets.</p>
 
-<p>You should compare <a href="#contract-position-notional">Contract Position Notional</a> with each position bracket to determine your initial and 
+<p>You should compare <a href="#contract-position-notional-cpn">Contract Position Notional (CPN)</a> with each position bracket to determine your initial and 
 maintenance margin rate.</p>
 <h3 id='position-initial-maintenance-margin'>Position Initial/Maintenance Margin</h3>
-<p>Position Initial Margin = CPN * Initial Margin Rate</p>
-
-<p>Position Maintenance Margin = CPN * Maintenance Margin Rate</p>
+<ul>
+<li>Position Initial Margin = CPN * Initial Margin Rate</li>
+<li>Position Maintenance Margin = CPN * Maintenance Margin Rate</li>
+</ul>
 <h3 id='liquidation-price'>Liquidation Price</h3>
+<ul>
+<li>V = Total Margin + Unrealized Pnl - Maintenance Margin</li>
+<li>R = abs(position size) * (1 - maintenance margin rate)</li>
+</ul>
+
 <p><strong>For Long position</strong></p>
 
-<p>V = Total Margin + Unrealized Pnl</p>
-
-<p>Liquidation Price = mark price - (V - Maintenance Margin) / abs(position size * (1 - maintenance margin rate))</p>
+<ul>
+<li>Liquidation Price = mark price - V / R</li>
+</ul>
 
 <p>If the calculated liquidation price is negative, the position won&#39;t be liquidation even when the price becomes zero.</p>
 
 <p><strong>For Short Position</strong></p>
 
-<p>V = Total Margin + Unrealized Pnl </p>
-
-<p>Liquidation Price = mark price + (V - Maintenance Margin) / abs(position size * (1 - maintenance margin rate))</p>
+<ul>
+<li>Liquidation Price = mark price + V / R</li>
+</ul>
 <h1 id='restful-apis'>RESTful APIs</h1><h2 id='general-info-public'>General Info (Public)</h2><h3 id='futures-contracts-info'>Futures Contracts Info</h3>
 <blockquote>
 <p>Response - Futures Contracts Info</p>
@@ -1952,20 +1983,20 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds. The <code>api-p
 </tr>
 </thead><tbody>
 <tr>
-<td><code>symbol</code></td>
-<td><code>String</code></td>
+<td>symbol</td>
+<td>String</td>
 <td>No</td>
 <td>symbol filter, e.g. <code>&quot;BTC-PERP&quot;</code></td>
 </tr>
 <tr>
-<td><code>n</code></td>
-<td><code>Int</code></td>
+<td>n</td>
+<td>Int</td>
 <td>No</td>
 <td>maximum number of orders to be included in the response</td>
 </tr>
 <tr>
-<td><code>executedOnly</code></td>
-<td><code>Boolean</code></td>
+<td>executedOnly</td>
+<td>Boolean</td>
 <td>No</td>
 <td>if <code>True</code>, include orders with non-zero filled quantities only.</td>
 </tr>
@@ -2290,13 +2321,13 @@ the client should promptly send a <code>pong</code> message to the server. If yo
 </tr>
 </thead><tbody>
 <tr>
-<td><code>op</code></td>
-<td><code>String</code></td>
+<td>op</td>
+<td>String</td>
 <td><code>ping</code></td>
 </tr>
 <tr>
-<td><code>hp</code></td>
-<td><code>Int</code></td>
+<td>hp</td>
+<td>Int</td>
 <td>health point: when this value decreases to 0, the session will be disconnected.</td>
 </tr>
 </tbody></table>
@@ -2304,8 +2335,8 @@ the client should promptly send a <code>pong</code> message to the server. If yo
 <blockquote>
 <p>Method 2. keep the connection alive by sending ping message to the server</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>&gt;&gt;&gt; { "op": "ping" }                                      # Client initiated ping message (every 30 seconds)
-&lt;&lt;&lt; { "m":"pong", "code":0, "ts":1614164189, "hp": 2 } # Server responds to client ping 
+<div class="highlight"><pre class="highlight plaintext"><code>&gt;&gt;&gt; { "op": "ping" }                                    # Client initiated ping message (every 30 seconds)
+&lt;&lt;&lt; { "m":"pong", "code":0, "ts":1614164189, "hp": 2 }  # Server responds to client ping 
 </code></pre></div>
 <p>You can also send <code>ping</code> message to the server every 15 seconds to keep the connection alive. The server will stop sending <code>ping</code> message 
 for 30 seconds if a client initiated <code>ping</code> message is received. </p>
@@ -2320,23 +2351,23 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>m</code></td>
-<td><code>String</code></td>
+<td>m</td>
+<td>String</td>
 <td><code>pong</code></td>
 </tr>
 <tr>
-<td><code>code</code></td>
-<td><code>Int</code></td>
+<td>code</td>
+<td>Int</td>
 <td>error code, for the pong mesage, the error code is always 0 (success)</td>
 </tr>
 <tr>
-<td><code>ts</code></td>
-<td><code>Long</code></td>
+<td>ts</td>
+<td>Long</td>
 <td>server time in UTC miliseconds</td>
 </tr>
 <tr>
-<td><code>hp</code></td>
-<td><code>Int</code></td>
+<td>hp</td>
+<td>Int</td>
 <td>health point: when this value decreases to 0, the session will be disconnected.</td>
 </tr>
 </tbody></table>
