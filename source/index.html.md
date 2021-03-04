@@ -71,6 +71,8 @@ code_clipboard: true
 
 **2021-03-03**
 
+* Fixed bug of cancelling a filled order with empty fields error response.
+* Added *symbol* to error response from WebSocket [*Place Order*](#ws-place-order).
 * Updated *nextFundingTime* value in RESTful [*Futures Pricing Data*](#futures-pricing-data) response.
 * Updated nextFundingTime *f* value in WebSocket [*Futures Pricing Data*](#channel-futures-pricing-data) message.
 * Added error response demo in [*Place New Order*](#new-order).
