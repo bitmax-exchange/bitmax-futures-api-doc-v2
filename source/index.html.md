@@ -10,6 +10,7 @@ toc_footers:
   - <a href='https://bitmax.io'>Sign Up for BitMax.io</a>
 
 includes:
+  - spec
   - rest
   - rest_pub_general
   - rest_pub_general_futures_products
@@ -55,12 +56,16 @@ includes:
   - appendix
   - appendix_enum
 
+header_navigators:
+  - <a href="https://bitmax-exchange.github.io/bitmax-pro-api/#bitmax-pro-api-documentation">Cash/Margin APIs</a>
+  - <a href="https://bitmax-exchange.github.io/bitmax-futures-api-doc-v2/#bitmax-futures-trading-api-documentation" class="current">Futures APIs</a>
+
 search: true
 
 code_clipboard: true
 ---
 
-# Introducing Futures Pro (v2) APIs (Testnet Only)
+# Introducing Futures Pro (v2) APIs (Mainnet / Testnet)
 
 ## Change Log
 
@@ -74,6 +79,8 @@ code_clipboard: true
 * Added error response demo in [*Place Batch Orders*](#place-batch-orders).
 * Fixed bug in [*Cancel All Open Orders*](#cancel-all-open-orders) when no data is passed in request body.
 * Fixed bug of *URL Not Found* in [*Account Info*](#account-info).
+* Added *openInterest* in [*Futures Pricing Data*](#futures-pricing-data)
+* Added *oi* (open interest) in [*Channel: Futures Pricing Data*](#channel-futures-pricing-data)
 
 **2021-02-26**  
 
@@ -110,6 +117,10 @@ code_clipboard: true
 
 * Replaced `baseAsset` and `quoteAsset` with `settlementAsset` in [*Futures Contract Info*](#futures-contracts-info) response.
 * Updated [*Account Info*](#account-info) API path.
+
+## Mainnet
+
+URL: [*https://bitmax.io*](https://bitmax.io/)
 
 ## Testnet 
 

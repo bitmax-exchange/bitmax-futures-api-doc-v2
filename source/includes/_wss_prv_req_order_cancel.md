@@ -42,6 +42,7 @@
    "code"  : 300006,
    "id"    : "sampleRequestId", // echo back the original request Id
    "info":{
+      "symbol"  : "BTC-PERP",
       "reason"  : "INVALID_ORDER_ID",
       "errorMsg": "Client Order Id too Long: s177bab1b474U5051470287bbtcpKiOR1"
    }

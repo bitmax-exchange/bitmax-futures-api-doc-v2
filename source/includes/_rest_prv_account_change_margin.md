@@ -28,3 +28,9 @@ PARAMETER  | TYPE   | REQUIRED | DESCRIPTION
 symbol     | String |  Yes     | e.g. `BTC-PERP`
 amount     | String |  Yes     | margin amount in string type, e.g. "100". Set `amount` to positive will increase the isolated margin; set `amount` 
 to a negative number will decrease the isolated margin. 
+
+
+When you increase/decrease the isolated margin by a certain amount, the same amount X will be deducted/added from your USDT balance in the collateral. 
+
+When you have non-USDT collateral assets, you may be able to increase the isolated margin by an amount more than your USDT balance. 
+In which case, your USDT balance will become negative after the operation. 

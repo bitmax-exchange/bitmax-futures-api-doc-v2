@@ -5,36 +5,37 @@
 ```json
 {
     "m": "futures-pricing-data",
-    "con": [  // all contracts
+    "con": [  // contracts
         {
-            "s": "BTC-PERP",          // symbol
-            "t": 1609371076960,       // data time
-            "mp": "28142.586177036",  // mark price
-            "ip": "28838.695",        // index price
-            "r": "-0.005",            // funding rate 
-            "f": 1609372800000        // next funding time
+            "s" : "BTC-PERP",        // symbol
+            "t" : 1614814705716,     // data time
+            "ip": "50702.8",         // index price
+            "mp": "50652.3553",      // mark price
+            "r" : "0.000565699",     // funding rate 
+            "oi": "90.7367",         // open interest
+            "f" : 1614816000000      // next funding time
         }
-    ],
-    "col": [  // all collaterals
+    ], 
+    "col": [  // collateral assets
         {
-            "a": "USDTR",   // asset
-            "p": "1"        // reference price
+            "a": "USDTR",  // asset
+            "p": "1"       // reference price (quote in USDT)
         },
         {
             "a": "USDC",
-            "p": "0.9996"
+            "p": "0.99935"
         },
         {
             "a": "ETH",
-            "p": "749.82"
+            "p": "1582.505"
         },
         {
             "a": "PAX",
-            "p": "1.0002"
+            "p": "0.9964"
         },
         {
             "a": "BTC",
-            "p": "28834.165"
+            "p": "50621.795"
         },
         {
             "a": "USDT",
