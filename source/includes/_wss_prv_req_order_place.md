@@ -46,6 +46,7 @@
    "action": "place-order",
    "ac"    : "FUTURES",
    "info": {
+      "symbol"  : "BTC-PERP",
       "reason"  : "INVALID_PRICE",
       "errorMsg": "Order price is too low from market price."
    }
