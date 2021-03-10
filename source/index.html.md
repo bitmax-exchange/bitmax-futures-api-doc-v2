@@ -69,6 +69,11 @@ code_clipboard: true
 
 ## Change Log
 
+**2021-03-12**  
+
+* Added RESTful [*Close All Position*](#close-all-position) API.
+* Added WebSocket [*Close All Position*](#ws-close-all-position) API.
+
 **2021-03-03**
 
 * Fixed bug of cancelling a filled order with empty fields error response.
