@@ -22,13 +22,31 @@ cancelOpen| Boolean |   No     | To cancel all open orders, default *True*
 
 ```json
 {
-   "ac":"FUTURES",
-   "accountId":"sample-futures-account-id",
-   "action":"close-all-position",
-   "status":"ACK",
-   "info":{
-      "symbol": "BTC-PERP",
-      "cancelOpen":true
-   }
+    "ac": "FUTURES",
+    "accountId": "sample-futures-account-id",
+    "action": "close-all-position",
+    "code": 0,
+    "info": {
+        "cancelOpen": true,
+        "symbol": ""
+    }
 }
 ```
+
+> Error Response
+
+```json
+{
+    "ac": "FUTURES",
+    "accountId": "sample-futures-account-id",
+    "action": "close-all-position",
+    "code": 300012,
+    "info": {
+        "cancelOpen": true,
+        "symbol": "ABC-PERP"
+    },
+    "message": "Invalid Product Symbol",
+    "reason": "INVALID_PRODUCT"
+}
+```
+
