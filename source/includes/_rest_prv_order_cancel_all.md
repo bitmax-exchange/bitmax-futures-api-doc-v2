@@ -19,27 +19,31 @@ symbol    | String |   No     | the optional symbol filter
 
 ```json
 {
-    "ac": "FUTURES",
-    "accountId": "sample-futures-account-id",
-    "action": "cancel-all",
     "code": 0,
-    "info": {
-        "symbol": ""
-    }
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "cancel-all",
+        "info": {
+            "symbol": "BTC-PERP"
+                }
+            }
 }
 ```
 > Error Response
 
 ```json
 {
-    "ac": "FUTURES",
-    "accountId": "sample-futures-account-id",
-    "action": "cancel-all",
     "code": 300012,
-    "info": {
-        "symbol": "ABC-PERP"
-    },
     "message": "Invalid Product Symbol",
-    "reason": "INVALID_PRODUCT"
+    "reason": "INVALID_PRODUCT",
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "cancel-all",
+        "info": {
+            "symbol": "ABC-PERP"
+                }
+        }
 }
 ```

@@ -22,14 +22,16 @@ cancelOpen| Boolean |   No     | To cancel all open orders, default *True*
 
 ```json
 {
-    "ac": "FUTURES",
-    "accountId": "sample-futures-account-id",
-    "action": "close-all-position",
     "code": 0,
-    "info": {
-        "cancelOpen": true,
-        "symbol": ""
-    }
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "close-all-position",
+        "info": {
+            "cancelOpen": true,
+            "symbol": ""
+                }
+            }
 }
 ```
 
@@ -37,16 +39,18 @@ cancelOpen| Boolean |   No     | To cancel all open orders, default *True*
 
 ```json
 {
-    "ac": "FUTURES",
-    "accountId": "sample-futures-account-id",
-    "action": "close-all-position",
     "code": 300012,
-    "info": {
-        "cancelOpen": true,
-        "symbol": "ABC-PERP"
-    },
     "message": "Invalid Product Symbol",
-    "reason": "INVALID_PRODUCT"
+    "reason": "INVALID_PRODUCT",
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "close-all-position",
+        "info": {
+            "cancelOpen": true,
+            "symbol": "ABC-PERP"
+                }
+        }
 }
 ```
 
