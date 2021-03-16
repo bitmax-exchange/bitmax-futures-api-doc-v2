@@ -53,6 +53,7 @@ includes:
   - wss_prv_req_order_place
   - wss_prv_req_order_cancel
   - wss_prv_req_order_cancel_all
+  - wss_prv_req_order_open
   - appendix
   - appendix_enum
 
@@ -69,10 +70,11 @@ code_clipboard: true
 
 ## Change Log
 
-**2021-03-12**  
+**2021-03-22**  
 
 * Added RESTful [*Close All Position*](#close-all-position) API.
 * Added WebSocket [*Close All Position*](#ws-close-all-position) API.
+* Added WebSocket [*Query Open Orders*](#ws-query-open-orders) API.
 
 **2021-03-03**
 
