@@ -1,13 +1,5 @@
 ### Cancel All Open Orders
 
-> Response
-
-```json
-{
-    "code": 0
-}
-```
-
 **HTTP Request**
 
 `DELETE /<grp>/api/pro/v2/futures/order/all`
@@ -22,3 +14,36 @@ PARAMETER | TYPE   | REQUIRED | DESCRIPTION
 --------- |--------| -------- | ------------------------------------------------------ 
 symbol    | String |   No     | the optional symbol filter
 
+
+> Successful Response
+
+```json
+{
+    "code": 0,
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "cancel-all",
+        "info": {
+            "symbol": "BTC-PERP"
+                }
+            }
+}
+```
+> Error Response
+
+```json
+{
+    "code": 300012,
+    "message": "Invalid Product Symbol",
+    "reason": "INVALID_PRODUCT",
+    "data": {
+        "ac": "FUTURES",
+        "accountId": "sample-futures-account-id",
+        "action": "cancel-all",
+        "info": {
+            "symbol": "ABC-PERP"
+                }
+        }
+}
+```
