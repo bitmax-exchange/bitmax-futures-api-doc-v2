@@ -53,6 +53,7 @@ includes:
   - wss_prv_req_order_place
   - wss_prv_req_order_cancel
   - wss_prv_req_order_cancel_all
+  - wss_prv_req_order_open
   - appendix
   - appendix_enum
 
@@ -68,6 +69,10 @@ code_clipboard: true
 # Introducing Futures Pro (v2) APIs (Mainnet / Testnet)
 
 ## Change Log
+
+**2021-03-18**  
+
+* Added WebSocket [*Query Open Orders*](#ws-query-open-orders) API.
 
 **2021-03-03**
 
