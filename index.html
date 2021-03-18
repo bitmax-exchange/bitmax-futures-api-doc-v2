@@ -31,28 +31,28 @@
   color: #f6aa11;
 }
 .highlight .cm {
-  color: #999999;
+  color: #75715e;
 }
 .highlight .cp {
-  color: #999999;
+  color: #75715e;
 }
 .highlight .c1 {
-  color: #999999;
+  color: #75715e;
 }
 .highlight .cs {
-  color: #999999;
+  color: #75715e;
 }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
-  color: #999999;
+  color: #75715e;
 }
 .highlight .err {
-  color: #999999;
+  color: #960050;
 }
 .highlight .gr {
-  color: #999999;
+  color: #960050;
 }
 .highlight .gt {
-  color: #999999;
+  color: #960050;
 }
 .highlight .gd {
   color: #49483e;
@@ -79,55 +79,55 @@
   color: #66d9ef;
 }
 .highlight .mf {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .mh {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .il {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .mi {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .mo {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .m, .highlight .mb, .highlight .mx {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .sc {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .se {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .ss {
-  color: #f08c49;
+  color: #ae81ff;
 }
 .highlight .sd {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .s2 {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .sb {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .sh {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .si {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .sx {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .s1 {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .s, .highlight .sa, .highlight .dl {
-  color: #7ec699;
+  color: #e6db74;
 }
 .highlight .na {
   color: #a6e22e;
@@ -175,25 +175,25 @@
   color: #ffffff;
 }
 .highlight .nl {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .ow {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .nt {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .k, .highlight .kv {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .kn {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .kp {
-  color: #f8c455;
+  color: #f92672;
 }
 .highlight .o {
-  color: #f8c455;
+  color: #f92672;
 }
     </style>
     <style media="print">
@@ -248,8 +248,11 @@
 .highlight .kd {
   color: #cb4b16;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
 }
 .highlight .sr {
   color: #2aa198;
@@ -469,14 +472,6 @@
                   </li>
                   <li>
                     <a href="#keep-the-connection-alive" class="toc-h2 toc-link" data-title="Keep the Connection Alive">Keep the Connection Alive</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#method-1-responding-to-server-39-s-ping-messages" class="toc-h3 toc-link" data-title="Method 1: Responding to Server's ping messages">Method 1: Responding to Server's ping messages</a>
-                          </li>
-                          <li>
-                            <a href="#method-2-sending-ping-messages-to-server" class="toc-h3 toc-link" data-title="Method 2: Sending ping messages to Server">Method 2: Sending ping messages to Server</a>
-                          </li>
-                      </ul>
                   </li>
                   <li>
                     <a href="#public-stream-data" class="toc-h2 toc-link" data-title="Public Stream Data">Public Stream Data</a>
@@ -523,6 +518,9 @@
                           </li>
                           <li>
                             <a href="#ws-cancel-all-orders" class="toc-h3 toc-link" data-title="WS: Cancel All Orders">WS: Cancel All Orders</a>
+                          </li>
+                          <li>
+                            <a href="#ws-query-open-orders" class="toc-h3 toc-link" data-title="WS: Query Open Orders">WS: Query Open Orders</a>
                           </li>
                       </ul>
                   </li>
@@ -574,6 +572,12 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introducing-futures-pro-v2-apis-mainnet-testnet'>Introducing Futures Pro (v2) APIs (Mainnet / Testnet)</h1><h2 id='change-log'>Change Log</h2>
+<p><strong>2021-03-22</strong>  </p>
+
+<ul>
+<li>Added WebSocket <a href="#ws-query-open-orders"><em>Query Open Orders</em></a> API.</li>
+</ul>
+
 <p><strong>2021-03-03</strong></p>
 
 <ul>
@@ -912,7 +916,7 @@ curl <span class="nt">-X</span> GET <span class="nt">-i</span> <span class="se">
 <span class="n">sec_key</span>   <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span>
 <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c1"># 1608133910000
 </span>
-<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s">f"</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s">+</span><span class="si">{</span><span class="n">api_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s">+</span><span class="si">{</span><span class="n">api_path</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
 <span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">sec_key</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
 
 <span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">).</span><span class="n">digest</span><span class="p">())</span>
@@ -3037,6 +3041,111 @@ if you provide <em>id</em> in your request, it will be echoed back as <em>id</em
 <p>With <em>code</em> field as <em>non-zero</em> to indicate there is some obvisous errors in your request. </p>
 
 <p><em>info</em> field provide some detail: we also provide error <em>reason</em> and <em>errorMsg</em> detail.</p>
+<h3 id='ws-query-open-orders'>WS: Query Open Orders</h3>
+<blockquote>
+<p>Requesting open orders on symbol BTC-PERP</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"op"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"futures-open-orders"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"args"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Open orders response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"futures-open-orders"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ac"</span><span class="p">:</span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"ac"</span><span class="p">:</span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"sample-futures-account-id"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"time"</span><span class="p">:</span><span class="mi">1615696544843</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"r1782f04c58aU3792951278sbtcp7EbA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"seqNum"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderType"</span><span class="p">:</span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"execInst"</span><span class="p">:</span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"side"</span><span class="p">:</span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC-PERP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"price"</span><span class="p">:</span><span class="s2">"66000"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"orderQty"</span><span class="p">:</span><span class="s2">"0.0001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"stopPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"stopBy"</span><span class="p">:</span><span class="s2">"market"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastExecTime"</span><span class="p">:</span><span class="mi">1615696544851</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lastPx"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"avgFilledPx"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"cumFilledQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"fee"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"cumFee"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"feeAsset"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posStopLossPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posStopLossTrigger"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posTakeProfitPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"posTakeProfitTrigger"</span><span class="p">:</span><span class="s2">"None"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"m"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">100005</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"reason"</span><span class="p">:</span><span class="s2">"INVALID_WS_REQUEST_DATA"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"info"</span><span class="p">:</span><span class="s2">"Missing required parameter: args"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>You can request the open order via websocket by a <code>futures-open-orders</code> action. </p>
+
+<p>The request schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>op</td>
+<td>String</td>
+<td><code>req</code></td>
+</tr>
+<tr>
+<td>action</td>
+<td>String</td>
+<td><code>futures-open-orders</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>for result match purpose</td>
+</tr>
+<tr>
+<td>args:symbol</td>
+<td>Optional[String]</td>
+<td>add the (optional) symbol filter, see below for details.</td>
+</tr>
+</tbody></table>
+
+<p>The <code>symbol</code> key in the <code>args</code> map allows you to customize the symbol filter in a flexible way:</p>
+
+<ul>
+<li>to query open orders of the <strong>a specific symbol</strong>, set <code>symbol</code> to a valid symbol code. For instance, <code>{&quot;symbol&quot;: &quot;BTC-PERP&quot;}</code></li>
+<li>to query <strong>all open orders</strong>, you may simply omit the <code>symbol</code> key (<code>{}</code>). </li>
+</ul>
 <h1 id='appendix'>Appendix</h1><h2 id='enum-definitions'>ENUM Definitions</h2><h3 id='account-category-ac'>Account Category (<code>ac</code>)</h3>
 <ul>
 <li><code>CASH</code></li>
