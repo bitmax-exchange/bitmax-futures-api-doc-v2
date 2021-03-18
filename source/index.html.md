@@ -70,7 +70,7 @@ code_clipboard: true
 
 ## Change Log
 
-**2021-03-22**  
+**2021-03-18**  
 
 * Added WebSocket [*Query Open Orders*](#ws-query-open-orders) API.
 
