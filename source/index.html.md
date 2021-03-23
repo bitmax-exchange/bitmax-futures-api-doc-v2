@@ -69,9 +69,11 @@ code_clipboard: true
 # Introducing Futures Pro (v2) APIs (Mainnet / Testnet)
 
 
-<aside class="notice">
-BitMax has officially rebranded to AscendEX! Please visit [https://ascendex.github.io/ascendex-pro-api/](https://ascendex.github.io/ascendex-pro-api/) for the most recent document. 
+<aside class="success">
+BitMax has officially rebranded AscendEX!
 </aside>
+
+**BitMax has officially rebranded to AscendEX!** Please visit [https://ascendex.github.io/ascendex-pro-api/](https://ascendex.github.io/ascendex-pro-api/) for the most recent document. 
 
 
 ## Change Log
